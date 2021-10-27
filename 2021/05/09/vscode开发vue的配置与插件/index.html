@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vscode开发vue的配置与插件 | 李一称的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="ycli,ycli's Blog" />
+  
+  <meta name="description" content="概述介绍用vscode开发vue程序的相关配置与辅助插件 配置 vue代码片段模板   ctrl+shift+p，打开命令窗口，输入Snippets，出现下图：    输入vue，选择vue.code-snippets：    会在当前项目根目录中生成.vscode&#x2F;vue.code-snippets文件，在文件中添加以下内容：  123456789101112131415161718192021">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode开发vue的配置与插件">
+<meta property="og:url" content="https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/index.html">
+<meta property="og:site_name" content="李一称的博客">
+<meta property="og:description" content="概述介绍用vscode开发vue程序的相关配置与辅助插件 配置 vue代码片段模板   ctrl+shift+p，打开命令窗口，输入Snippets，出现下图：    输入vue，选择vue.code-snippets：    会在当前项目根目录中生成.vscode&#x2F;vue.code-snippets文件，在文件中添加以下内容：  123456789101112131415161718192021">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/001.png">
+<meta property="og:image" content="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/002.png">
+<meta property="og:image" content="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/003.png">
+<meta property="og:image" content="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/004.png">
+<meta property="article:published_time" content="2021-05-10T02:36:36.000Z">
+<meta property="article:modified_time" content="2021-10-27T11:13:08.611Z">
+<meta property="article:author" content="ycli">
+<meta property="article:tag" content="vscode">
+<meta property="article:tag" content="vue">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/001.png">
+  
+  
+    <link rel="icon" href="/workbook//favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/workbook/css/style.css">
+
+  
+<script src="/workbook/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/workbook/" class="left">
+                    <span class="site-title">ycli&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/workbook/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/workbook/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/workbook/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                    <a target="_blank" href="//github.com/yclii">
+                        <i class="fa fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+			<!--
+            <div id="logo">
+                <a href="/workbook/">
+                    <img src="/workbook/" alt="logo">
+                </a>
+            </div>
+			-->
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        ycli&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        Knowledge is the torch of wisdom.
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-vscode开发vue的配置与插件" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      vscode开发vue的配置与插件
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/workbook/categories/vscode/">vscode</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-05-09
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>介绍用<code>vscode</code>开发<code>vue</code>程序的相关配置与辅助插件</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><ul>
+<li><code>vue</code>代码片段模板</li>
+</ul>
+<ol>
+<li>ctrl+shift+p，打开命令窗口，输入Snippets，出现下图：</li>
+</ol>
+<p> <img src="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/001.png"></p>
+<p>输入<code>vue</code>，选择<code>vue.code-snippets</code>：</p>
+<p> <img src="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/002.png"></p>
+<ol start="2">
+<li>会在当前项目根目录中生成.vscode/vue.code-snippets文件，在文件中添加以下内容：</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">&quot;vue&quot;: &#123;</span><br><span class="line">        &quot;prefix&quot;: &quot;vue&quot;,</span><br><span class="line">        &quot;body&quot;: [</span><br><span class="line">          &quot;&lt;!--&quot;,</span><br><span class="line">          &quot;* @description $1&quot;,</span><br><span class="line">          &quot;* @fileName $TM_FILENAME&quot;,</span><br><span class="line">          &quot;* @author ycli&quot;,</span><br><span class="line">          &quot;* @date $CURRENT_YEAR/$CURRENT_MONTH/$CURRENT_DATE $CURRENT_HOUR:$CURRENT_MINUTE:$CURRENT_SECOND&quot;,</span><br><span class="line">          &quot;!--&gt;&quot;,</span><br><span class="line">          &quot;&lt;template&gt;&quot;,</span><br><span class="line">          &quot;  &lt;div&gt;$0&lt;/div&gt;&quot;,</span><br><span class="line">          &quot;&lt;/template&gt;&quot;,</span><br><span class="line">          &quot;&quot;,</span><br><span class="line">          &quot;&lt;script&gt;&quot;,</span><br><span class="line">          &quot;export default &#123;&quot;,</span><br><span class="line">          &quot;  data () &#123;&quot;,</span><br><span class="line">          &quot;    return &#123;&quot;,</span><br><span class="line">          &quot;    &#125;&quot;,</span><br><span class="line">          &quot;  &#125;,&quot;,</span><br><span class="line">          &quot;&quot;,</span><br><span class="line">          &quot;  components: &#123;&#125;,&quot;,</span><br><span class="line">          &quot;&quot;,</span><br><span class="line">          &quot;  computed: &#123;&#125;,&quot;,</span><br><span class="line">          &quot;&quot;,</span><br><span class="line">          &quot;  mounted: &#123;&#125;,&quot;,</span><br><span class="line">          &quot;&quot;,</span><br><span class="line">          &quot;  methods: &#123;&#125;&quot;,</span><br><span class="line">          &quot;&#125;&quot;,</span><br><span class="line">          &quot;&quot;,</span><br><span class="line">          &quot;&lt;/script&gt;&quot;,</span><br><span class="line">        ],</span><br><span class="line">        &quot;description&quot;: &quot;vue初始化页面&quot;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>新建<code>.vue</code>的文件，在文件中输入<code>vue</code>（对应上面配置属性<code>preffix</code>），回车：</li>
+</ol>
+<p> <img src="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/003.png"></p>
+<p> <img src="https://yclii.github.io/workbook/assets/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/004.png"></p>
+<h3 id="插件"><a href="#插件" class="headerlink" title="插件"></a>插件</h3><ul>
+<li><code>vetur</code></li>
+</ul>
+<p>功能：语法高亮</p>
+<ul>
+<li><code>vue 3 snippets</code></li>
+</ul>
+<p>功能：基于最新的 <code>Vue 2</code> 及 <code>Vue 3</code> 的 <code>API</code> 添加了 <code>Code Snippets</code></p>
+<ul>
+<li><code>element ui Snippets</code></li>
+</ul>
+<p>功能：通过快捷代码快速制定<code>element-ui</code>组件代码片段，如输入<code>elt</code>，回车后会自动生成<code>el-table</code>节点</p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年10月27日 07:13</p>
+        <p>原始链接： <a class="post-url" href="/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/" title="vscode开发vue的配置与插件">https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/</a></p>
+        <footer>
+            <a href="https://yclii.github.io/workbook">
+                <img src="/workbook/images/banner.jpg" alt="ycli">
+                ycli
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果文章对你有用，可以打赏一下作者
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/workbook/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/workbook/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/workbook/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/workbook/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/workbook/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/&title=《vscode开发vue的配置与插件》 — 李一称的博客&pic=images/logo/vscode.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/&title=《vscode开发vue的配置与插件》 — 李一称的博客&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《vscode开发vue的配置与插件》 — 李一称的博客&url=https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/&via=https://yclii.github.io/workbook" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://yclii.github.io/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/workbook/tags/vscode/" class="color2">vscode</a>
+      
+    <a href="/workbook/tags/vue/" class="color4">vue</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%85%8D%E7%BD%AE"><span class="post-toc-text">配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8F%92%E4%BB%B6"><span class="post-toc-text">插件</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          AWR报告解析
+        
+      </span>
+    </a>
+  
+  
+    <a href="/workbook/2021/05/09/maven%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">maven学习笔记</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="vscode开发vue的配置与插件" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvrD3KQG';
+        var conf = 'prod_18ca86cbd238ba30e70d774e741ff021';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	 <!--
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+	 -->
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 ycli<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://yclii.github.io/workbook",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/workbook/categories/devOpts/">devOpts</a><a class="category-link" href="/workbook/categories/maven/">maven</a><a class="category-link" href="/workbook/categories/mysql/">mysql</a><a class="category-link" href="/workbook/categories/oracle/">oracle</a><a class="category-link" href="/workbook/categories/tool/">tool</a><a class="category-link" href="/workbook/categories/vscode/">vscode</a><a class="category-link" href="/workbook/categories/vue/">vue</a><a class="category-link" href="/workbook/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/workbook/tags/AWR/" style="font-size: 20px;">AWR</a> <a href="/workbook/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/workbook/tags/docker/" style="font-size: 10px;">docker</a> <a href="/workbook/tags/git/" style="font-size: 10px;">git</a> <a href="/workbook/tags/maven/" style="font-size: 10px;">maven</a> <a href="/workbook/tags/mermaid/" style="font-size: 10px;">mermaid</a> <a href="/workbook/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/workbook/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/workbook/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/workbook/tags/vue/" style="font-size: 20px;">vue</a> <a href="/workbook/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/workbook/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">多进程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/workbook/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/workbook/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/workbook/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="//github.com/yclii">
+                    <i class="fa fa-github"></i><span>GitHub</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/workbook/tags/AWR/" style="font-size: 20px;">AWR</a> <a href="/workbook/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/workbook/tags/docker/" style="font-size: 10px;">docker</a> <a href="/workbook/tags/git/" style="font-size: 10px;">git</a> <a href="/workbook/tags/maven/" style="font-size: 10px;">maven</a> <a href="/workbook/tags/mermaid/" style="font-size: 10px;">mermaid</a> <a href="/workbook/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/workbook/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/workbook/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/workbook/tags/vue/" style="font-size: 20px;">vue</a> <a href="/workbook/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/workbook/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">多进程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/workbook/js/search.js"></script>
+
+
+<script src="/workbook/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/workbook/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/workbook/js/animate.js"></script>
+
+
+
+  
+<script src="/workbook/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+
+  <script src="https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js"></script>
+  
+
+
+  </div>
+</body>
+</html>

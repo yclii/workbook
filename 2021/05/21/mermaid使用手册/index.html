@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>mermaid使用手册 | 李一称的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="ycli,ycli's Blog" />
+  
+  <meta name="description" content="概述 It is a Javascript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.  它是一个基于Javascript的图表和坐标图工具，可以呈现基于Markdown的文本定义来动态地创">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mermaid使用手册">
+<meta property="og:url" content="https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/index.html">
+<meta property="og:site_name" content="李一称的博客">
+<meta property="og:description" content="概述 It is a Javascript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.  它是一个基于Javascript的图表和坐标图工具，可以呈现基于Markdown的文本定义来动态地创">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-05-21T19:44:56.000Z">
+<meta property="article:modified_time" content="2021-10-27T11:13:08.610Z">
+<meta property="article:author" content="ycli">
+<meta property="article:tag" content="mermaid">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/workbook//favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/workbook/css/style.css">
+
+  
+<script src="/workbook/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/workbook/" class="left">
+                    <span class="site-title">ycli&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/workbook/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/workbook/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/workbook/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                    <a target="_blank" href="//github.com/yclii">
+                        <i class="fa fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+			<!--
+            <div id="logo">
+                <a href="/workbook/">
+                    <img src="/workbook/" alt="logo">
+                </a>
+            </div>
+			-->
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        ycli&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        Knowledge is the torch of wisdom.
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-mermaid使用手册" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      mermaid使用手册
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+              <li>
+                  <i class="fa fa-book"></i>
+                  
+                      <a href="/workbook/categories/tool/">tool</a>
+                  
+              </li>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2021-05-21
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
+<p>It is a Javascript based diagramming and charting tool that renders Markdown-inspired text definitions to create and modify diagrams dynamically.</p>
+</blockquote>
+<p>它是一个基于<code>Javascript</code>的图表和坐标图工具，可以呈现基于<code>Markdown</code>的文本定义来动态地创建和修改图表。</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><ul>
+<li><p>官网地址：<a target="_blank" rel="noopener" href="https://mermaid-js.github.io/mermaid/#/">https://mermaid-js.github.io/mermaid/#/</a></p>
+</li>
+<li><p>源码安装（在线编辑）</p>
+</li>
+</ul>
+<p><code>git clone https://github.com/mermaid-js/mermaid-live-editor.git</code></p>
+<p>进入目录后，<code>npm install</code>，然后启动 <code>npm run dev</code>。</p>
+<ul>
+<li>发布版安装</li>
+</ul>
+<p><code>npm init</code></p>
+<p><code>npm install -S mermaid</code></p>
+<p>新建一文本，写入mermaid组件语句，如：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line">dateFormat  YYYY-MM-DD</span><br><span class="line">title 项目交付计划</span><br><span class="line"> </span><br><span class="line">section 里程碑 0.1 </span><br><span class="line">数据库设计:active,p1,2016-08-15,3d</span><br><span class="line">详细设计:p2,after p1,2d</span><br><span class="line"> </span><br><span class="line">section 里程碑 0.2</span><br><span class="line">后端开发:p3,2016-08-22,20d</span><br><span class="line">前端开发:p4,2016-08-22,15d</span><br><span class="line"> </span><br><span class="line">section 里程碑 0.3</span><br><span class="line">功能测试:p6,after p3,5d</span><br><span class="line">上线:p7,after p6,2d</span><br></pre></td></tr></table></figure>
+
+<p>命名为<code>demo.gantt</code>，然后使用一下命令：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mermaid demo.gantt -w 1920 -s -p -o images</span><br></pre></td></tr></table></figure>
+
+<p>就会在<code>images</code>目录下生成两个文件，一个<code>svg</code>文件、一个<code>png</code>图片文件。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-s --svg       输出 SVG 替代 PNG（试验性的功能）。</span><br><span class="line">-p --png       如果选择保存 SVG，那么加上这个选项可以同时保存 PNG。</span><br><span class="line">-o --outputDir 保存文件的目录（如果不存在会自动创建），默认 <span class="code">`cwd`</span>。</span><br><span class="line">-w --width	   生成的图片宽度</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>typora</code>插件（安装<code>typora</code>即可）</li>
+</ul>
+<p><code>typora</code>工具默认集成了<code>mermaid</code>，使用<code>&lt;pre class=&quot;mermaid&quot;&gt;</code>即可开启<code>mermaid</code>功能。刻意输入不合法的语法，即可显示当前<code>mermaid</code>版本。</p>
+<p>==说明：本文档所有示例采用第三种，<code>typora</code>插件== </p>
+<h3 id="图表类型"><a href="#图表类型" class="headerlink" title="图表类型"></a>图表类型</h3><h4 id="流程图（FlowChart）"><a href="#流程图（FlowChart）" class="headerlink" title="流程图（FlowChart）"></a>流程图（<code>FlowChart</code>）</h4><blockquote>
+<p>All Flowcharts are composed of <strong>nodes</strong>, the geometric shapes and <strong>edges</strong>, the arrows or lines. The mermaid code defines the way that these <strong>nodes</strong> and <strong>edges</strong> are made and interact.</p>
+</blockquote>
+<p>流程图就是一些节点、几何图形、边界、箭头和线条的组合。</p>
+<ul>
+<li><code>graph</code>语句</li>
+</ul>
+<p>流程图是从<code>graph</code>语句开始，<code>graph</code>语句表示流程图的方向，默认是从<code>top</code>到<code>bottom</code>（<code>TD</code>或<code>TB</code>）。可能的方向包括：</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>TB</code></td>
+<td><code>top to bottom</code></td>
+</tr>
+<tr>
+<td><code>TD</code></td>
+<td><code>top-down</code>，等同于<code>TB</code></td>
+</tr>
+<tr>
+<td><code>BT</code></td>
+<td><code>bottom to top</code></td>
+</tr>
+<tr>
+<td><code>RL</code></td>
+<td><code>right to left</code></td>
+</tr>
+<tr>
+<td><code>LR</code></td>
+<td><code>left to right</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li>默认节点</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID&lt;/pre&gt;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">&lt;pre class=&quot;mermaid&quot;&gt;graph TB</span></span><br><span class="line"><span class="code">	ID&lt;/pre&gt;</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">```markdown</span></span><br><span class="line"><span class="code">graph TB</span></span><br><span class="line"><span class="code">	ID[hello]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID[hello]</pre>
+
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID(hello)</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID(hello)</pre>
+
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID([hello])</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID([hello])</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID((hello))</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID((hello))</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID[[hello]]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID[[hello]]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID[(hello)]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID[(hello)]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID&gt;hello]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID>hello]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID&#123;hello&#125;</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID{hello}</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID&#123;&#123;hello&#125;&#125;</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID[/hello/]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID[/hello/]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID[\hello/]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID[\hello/]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	ID[/hello\]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    ID[/hello\]</pre>
+
+<ul>
+<li>连线</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A--&gt;B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-->B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A--hello--&gt;B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A--hello-->B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A--&gt;|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-->|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A---B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A---B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A--hello---B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A--hello---B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A---|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A---|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-&gt;B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.->B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.hello.-&gt;B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.hello.->B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-&gt;|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.->|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.hello.-B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.hello.-B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A==&gt;B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A==>B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A==hello==&gt;B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A==hello==>B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A==&gt;|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A==>|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A--&gt;|hello|B--&gt;|hello|C</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-->|hello|B-->|hello|C</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A--&gt;|hello|B &amp; C--&gt;D</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-->|hello|B & C-->D</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph</span><br><span class="line"><span class="code">	A &amp; B --&gt; C &amp; D</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph
+    A & B --> C & D</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">graph</span><br><span class="line"><span class="code">	A[开始]--&gt;B&#123;Yes or No?&#125;</span></span><br><span class="line"><span class="code">	B--&gt;|Yes|C[OK]</span></span><br><span class="line"><span class="code">	C--&gt;D[Rethink]</span></span><br><span class="line"><span class="code">	D--&gt;B</span></span><br><span class="line"><span class="code">	B--&gt;|No|E[结束]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A[开始]-->B{Yes or No?}
+    B-->|Yes|C[OK]
+    C-->D[Rethink]
+    D-->B
+    B-->|No|E[结束]</pre>
+
+<p>含有特殊字符的字符串需要用双引号</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph </span><br><span class="line"><span class="code">	A[&quot;hello(world)&quot;]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph
+    A["hello(world)"]</pre>
+
+<ul>
+<li>Subgraphs</li>
+</ul>
+<p>语法格式：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">subgraph title</span><br><span class="line"><span class="code">	graph definition</span></span><br><span class="line"><span class="code">end</span></span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">graph TB</span><br><span class="line"><span class="code">	subgraph one</span></span><br><span class="line"><span class="code">		A1--&gt;A2</span></span><br><span class="line"><span class="code">	end</span></span><br><span class="line"><span class="code">    subgraph two</span></span><br><span class="line"><span class="code">    	B1--&gt;B2</span></span><br><span class="line"><span class="code">    end</span></span><br><span class="line"><span class="code">    subgraph three</span></span><br><span class="line"><span class="code">    	C1-&gt;C2</span></span><br><span class="line"><span class="code">    end</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph TB
+    A1-->C2
+    subgraph three
+        C1-->C2
+    end
+    subgraph two
+        B1-->B2
+    end
+    subgraph one
+        A1-->A2
+    end</pre>
+
+<ul>
+<li>样式</li>
+</ul>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	id1(Start)--&gt;id2(Stop)</span></span><br><span class="line"><span class="code">    style id1 fill:#f9f,stroke:#333,stroke-width:4px</span></span><br><span class="line"><span class="code">    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    id1(Start)-->id2(Stop)
+    style id1 fill:#f9f,stroke:#333,stroke-width:4px
+    style id2 fill:#bbf,stroke:#f66,stroke-width:2px,color:#fff,stroke-dasharray: 5 5</pre>
+
+<h4 id="时序图（Sequence）"><a href="#时序图（Sequence）" class="headerlink" title="时序图（Sequence）"></a>时序图（Sequence）</h4><blockquote>
+<p>A Sequence diagram is an interaction diagram that shows how processes operate with one another and in what order.</p>
+</blockquote>
+<p>时序图就是用来展示进程间按照某种排序进行交互的图形</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	autonumber</span></span><br><span class="line"><span class="code">    张三-&gt;&gt;李四: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    李四--&gt;&gt;张三: Great!</span></span><br><span class="line"><span class="code">    张三--&gt;&gt;李四: See you later!</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    autonumber
+    张三->>李四: Hello 李四, how are you?
+    李四-->>张三: Great!
+    张三-->>李四: See you later!</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    B-xA: Great!</span></span><br><span class="line"><span class="code">    A--xB: See you later!</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    A->>B: Hello 李四, how are you?
+    B-xA: Great!
+    A--xB: See you later!</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    activate B</span></span><br><span class="line"><span class="code">    B-xA: Great!</span></span><br><span class="line"><span class="code">    deactivate B</span></span><br><span class="line"><span class="code">    A--xB: See you later!</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    A->>B: Hello 李四, how are you?
+    activate B
+    B-xA: Great!
+    deactivate B
+    A--xB: See you later!</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;+B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    B-x-A: Great!</span></span><br><span class="line"><span class="code">    A--xB: See you later!</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    A->>+B: Hello 李四, how are you?
+    B-x-A: Great!
+    A--xB: See you later!</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">	note right of B: 我是李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    B--&gt;&gt;A: Great!</span></span><br><span class="line"><span class="code">    A--&gt;&gt;B: See you later!</span></span><br></pre></td></tr></table></figure>
+
+<p>note right of|left of|over</p>
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    note right of B: 我是李四
+    A->>B: Hello 李四, how are you?
+    B-->>A: Great!
+    A-->>B: See you later!</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	autonumber</span></span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">	note over A,B: 张三，李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    B--&gt;&gt;A: Great!</span></span><br><span class="line"><span class="code">    A--&gt;&gt;B: See you later!</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    autonumber
+    participant A as 张三
+    participant B as 李四
+    note over A,B: 张三，李四
+    A->>B: Hello 李四, how are you?
+    B-->>A: Great!
+    A-->>B: See you later!</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    loop 每个一分钟</span></span><br><span class="line"><span class="code">    	B--&gt;&gt;A: Great!</span></span><br><span class="line"><span class="code">    end</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    A->>B: Hello 李四, how are you?
+    loop 每个一分钟
+        B-->>A: Great!
+    end</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">    A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">    alt 感冒了</span></span><br><span class="line"><span class="code">    	B--&gt;&gt;A: 感冒了:(</span></span><br><span class="line"><span class="code">    else 很好</span></span><br><span class="line"><span class="code">    	B--&gt;&gt;A: 吃嘛嘛香:)</span></span><br><span class="line"><span class="code">    end</span></span><br><span class="line"><span class="code">    opt 额外的响应</span></span><br><span class="line"><span class="code">    	B--&gt;&gt;A: 谢谢关心！</span></span><br><span class="line"><span class="code">    end</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    A->>B: Hello 李四, how are you?
+    alt 感冒了
+        B-->>A: 感冒了:(
+    else 很好
+        B-->>A: 吃嘛嘛香:)
+    end
+    opt 额外的响应
+        B-->>A: 谢谢关心！
+    end</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    participant C as 王五
+    par 张三 to 李四
+        A-->>B: 最近咋样？
+    and 张三 to 王五
+        A-->>C: 最近咋样？
+    end</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram</span><br><span class="line"><span class="code">	participant A as 张三</span></span><br><span class="line"><span class="code">	participant B as 李四</span></span><br><span class="line"><span class="code">	rect rgba(153,50,204,.9)</span></span><br><span class="line"><span class="code">        A-&gt;&gt;B: Hello 李四, how are you?</span></span><br><span class="line"><span class="code">        alt 感冒了</span></span><br><span class="line"><span class="code">            B--&gt;&gt;A: 感冒了:(</span></span><br><span class="line"><span class="code">        else 很好</span></span><br><span class="line"><span class="code">            B--&gt;&gt;A: 吃嘛嘛香:)</span></span><br><span class="line"><span class="code">        end</span></span><br><span class="line"><span class="code">    end</span></span><br><span class="line"><span class="code">    rect rgba(255,0,255)</span></span><br><span class="line"><span class="code">        opt 额外的响应</span></span><br><span class="line"><span class="code">            B--&gt;&gt;A: 谢谢关心！</span></span><br><span class="line"><span class="code">        end</span></span><br><span class="line"><span class="code">    end</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">sequenceDiagram
+    participant A as 张三
+    participant B as 李四
+    rect rgba(153,50,204,.9)
+        A->>B: Hello 李四, how are you?
+        alt 感冒了
+            B-->>A: 感冒了:(
+        else 很好
+            B-->>A: 吃嘛嘛香:)
+        end
+    end
+    rect rgba(255,0,255)
+        opt 额外的响应
+            B-->>A: 谢谢关心！
+        end
+    end</pre>
+
+<h4 id="类图（Class）"><a href="#类图（Class）" class="headerlink" title="类图（Class）"></a>类图（Class）</h4><blockquote>
+<p>The class diagram is the main building block of object-oriented modeling. It is used for general conceptual modeling of the structure of the application, and for detailed modeling translating the models into programming code. Class diagrams can also be used for data modeling. The classes in a class diagram represent both the main elements, interactions in the application, and the classes to be programmed.</p>
+</blockquote>
+<p>类图是面向对象建模的主要构件。它用于应用程序结构的一般概念建模，以及将模型转换为编程代码的详细建模。类图也可以用于数据建模。类图中的类表示主要元素、应用程序中的交互以及要编程的类。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line"><span class="code">      Animal &lt;|-- Duck</span></span><br><span class="line"><span class="code">      Animal &lt;|-- Fish</span></span><br><span class="line"><span class="code">      Animal &lt;|-- Zebra</span></span><br><span class="line"><span class="code">      Animal : +int age</span></span><br><span class="line"><span class="code">      Animal : +String gender</span></span><br><span class="line"><span class="code">      Animal: +isMammal()</span></span><br><span class="line"><span class="code">      Animal: +mate()</span></span><br><span class="line"><span class="code">      class Duck&#123;</span></span><br><span class="line"><span class="code">          +String beakColor</span></span><br><span class="line"><span class="code">          +swim()</span></span><br><span class="line"><span class="code">          +quack()</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">      class Fish&#123;</span></span><br><span class="line"><span class="code">          -int sizeInFeet</span></span><br><span class="line"><span class="code">          -canEat()</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">      class Zebra&#123;</span></span><br><span class="line"><span class="code">          +bool is_wild</span></span><br><span class="line"><span class="code">          +run()</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">      %% Generic Types</span></span><br><span class="line"><span class="code">      class Square~Shape~&#123;</span></span><br><span class="line"><span class="code">      	int id</span></span><br><span class="line"><span class="code">      	List~Integer~ position</span></span><br><span class="line"><span class="code">      	setPoints(List~Integer~ points)</span></span><br><span class="line"><span class="code">      	getPoints() List~Integer~</span></span><br><span class="line"><span class="code">      &#125;</span></span><br><span class="line"><span class="code">      Square:-List~String~ message</span></span><br><span class="line"><span class="code">      Square:+setMessage(List~String~ message)</span></span><br><span class="line"><span class="code">      Square:+getMessage() List~String~</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">classDiagram
+      Animal <|-- Duck
+      Animal <|-- Fish
+      Animal <|-- Zebra
+      Animal : +int age
+      Animal : +String gender
+      Animal: +isMammal()
+      Animal: +mate()
+      class Duck{
+          +String beakColor
+          +swim()
+          +quack()
+      }
+      class Fish{
+          -int sizeInFeet
+          -canEat()
+      }
+      class Zebra{
+          +bool is_wild
+          +run()
+      }
+      %% Generic Types
+      class Square~Shape~{
+          int id
+          List~Integer~ position
+          setPoints(List~Integer~ points)
+          getPoints() List~Integer~
+      }
+      Square:-List~String~ message
+      Square:+setMessage(List~String~ message)
+      Square:+getMessage() List~String~</pre>
+
+<ul>
+<li><p>Visibility</p>
+<p><code>+</code>     <code>public</code></p>
+<p><code>-</code>     <code>private</code></p>
+<p><code>#</code>      <code>protected</code></p>
+<p><code>~</code>      <code>package/internal</code></p>
+</li>
+</ul>
+<p>​        <code>*</code>      抽象方法，<code>someAbstractMethod()*</code></p>
+<p>​        <code>$</code>      静态方法，<code>someStaticMethod()$</code></p>
+<ul>
+<li>relationship</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–|&gt;</td>
+<td>Inheritance，继承，在UML中也称泛化（Generalization）</td>
+</tr>
+<tr>
+<td>–*</td>
+<td>Composition，组合，是整体与部分的关系，但部分不能离开整体而单独存在。如公司和部门是整体和部分的关系</td>
+</tr>
+<tr>
+<td>–o</td>
+<td>Aggregation，聚合，是整体与部分的关系，且部分可以离开整体而单独存在。如车和轮胎是整体和部分的关系</td>
+</tr>
+<tr>
+<td>–&gt;</td>
+<td>Association，关联，是一种拥有的关系，它使一个类是另一个类的属性和方法，存在一对多、多对多的关系。如老师与学生</td>
+</tr>
+<tr>
+<td>–</td>
+<td>Association，关联，双向关联</td>
+</tr>
+<tr>
+<td>..&gt;</td>
+<td>Dependency，依赖，是一种使用的关系，即一个类的实现需要另一个类的协助，所以要尽量不使用双向的互相依赖。局部变量、方法的参数或者对静态方法的调用</td>
+</tr>
+<tr>
+<td>..|&gt;</td>
+<td>Realization，实现</td>
+</tr>
+<tr>
+<td>..</td>
+<td>Dependency，依赖，双向依赖</td>
+</tr>
+</tbody></table>
+<ul>
+<li>cardinality on relations</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Cardinality</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Only 1</td>
+</tr>
+<tr>
+<td>0..1</td>
+<td>Zero or One</td>
+</tr>
+<tr>
+<td>1..*</td>
+<td>One or more</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Many</td>
+</tr>
+<tr>
+<td>n</td>
+<td>n{where n &gt; 1}</td>
+</tr>
+<tr>
+<td>0..n</td>
+<td>Zero to n{where n &gt; 1}</td>
+</tr>
+<tr>
+<td>1..n</td>
+<td>One to n{where n &gt; 1}</td>
+</tr>
+</tbody></table>
+<ul>
+<li>annotations on classes</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Annotation</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&lt;<Interface>&gt;</td>
+<td>To represent an Interface class</td>
+</tr>
+<tr>
+<td>&lt;<Abstract>&gt;</td>
+<td>To represent an abstract class</td>
+</tr>
+<tr>
+<td>&lt;<Service>&gt;</td>
+<td>To represent a service class</td>
+</tr>
+<tr>
+<td>&lt;<enumeration>&gt;</td>
+<td>To represent an enum</td>
+</tr>
+</tbody></table>
+<p>需先定义类，然后重新一行定义类注解</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line"><span class="code">	class Shape</span></span><br><span class="line"><span class="code">	&lt;&lt;Interface&gt;&gt; Shape</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">classDiagram
+    class Shape
+    <<Interface>> Shape</pre>
+
+<p>或者，在类体中添加注解</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line"><span class="code">	class Shape&#123;</span></span><br><span class="line"><span class="code">		&lt;&lt;Interface&gt;&gt;</span></span><br><span class="line"><span class="code">	&#125;</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">classDiagram
+    class Shape{
+        <<Interface>>
+    }
+    class Color{
+        <<enumeration>>
+        RED
+        BLUE
+        GREEN
+        WHITE
+        BLACK
+    }</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">classDiagram</span><br><span class="line">class ClassA</span><br><span class="line">class ClassB</span><br><span class="line">class ClassC</span><br><span class="line">class ClassD</span><br><span class="line">&lt;<span class="xml"><span class="tag">&lt;<span class="name">Interface</span>&gt;</span></span>&gt; ClassD</span><br><span class="line">class ClassE</span><br><span class="line">class ClassF</span><br><span class="line">class ClassG</span><br><span class="line">class ClassG1</span><br><span class="line">class ClassH</span><br><span class="line">class ClassH1</span><br><span class="line">class ClassI</span><br><span class="line">class ClassJ</span><br><span class="line">class ClassK</span><br><span class="line">class ClassL</span><br><span class="line"></span><br><span class="line">ClassA --|&gt; ClassB:继承</span><br><span class="line">ClassC ..|&gt; ClassD:实现</span><br><span class="line">ClassE --&gt; ClassF:关联</span><br><span class="line">ClassG ..&gt; ClassH:依赖</span><br><span class="line">ClassG1 .. ClassH1:双向依赖</span><br><span class="line">ClassI ..<span class="emphasis">* ClassJ:组合</span></span><br><span class="line"><span class="emphasis">ClassK --o ClassL:聚合</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">classDiagram
+class ClassA
+class ClassB
+class ClassC
+class ClassD
+<<Interface>> ClassD
+class ClassE
+class ClassF
+class ClassG
+class ClassG1
+class ClassH
+class ClassH1
+class ClassI
+class ClassJ
+class ClassK
+class ClassL
+
+ClassA --|> ClassB:继承
+ClassC ..|> ClassD:实现
+ClassE --> ClassF:关联
+ClassG ..> ClassH:依赖
+ClassG1 .. ClassH1:双向依赖
+ClassI ..* ClassJ:组合
+ClassK --o ClassL:聚合</pre>
+
+<h4 id="状态图（State）"><a href="#状态图（State）" class="headerlink" title="状态图（State）"></a>状态图（State）</h4><blockquote>
+<p>A state diagram is a type of diagram used in computer science and related fields to describe the behavior of systems. State diagrams require that the system described is composed of a finite number of states; sometimes, this is indeed the case, while at other times this is a reasonable abstraction.</p>
+</blockquote>
+<p>状态图是计算机科学和相关领域中用来描述系统行为的一种图。状态图要求所描述的系统由有限个状态组成；有时，情况确实如此，而有时这是一种合理的抽象。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">    [*] --&gt; Still</span></span><br><span class="line"><span class="code">    Still --&gt; [*]:transition</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    Still --&gt; Moving</span></span><br><span class="line"><span class="code">    Moving --&gt; Still</span></span><br><span class="line"><span class="code">    Moving --&gt; Crash</span></span><br><span class="line"><span class="code">    Crash --&gt; [*]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+    [*] --> Still
+    Still --> [*]:transition
+
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">    state &quot;hello&quot; as s1</span></span><br><span class="line"><span class="code">    s2:hello</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+    state "hello" as s1
+    s2:hello</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">    [*] --&gt; First</span></span><br><span class="line"><span class="code">    state First &#123;</span></span><br><span class="line"><span class="code">        [*] --&gt; Second</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">        state Second &#123;</span></span><br><span class="line"><span class="code">            [*] --&gt; second</span></span><br><span class="line"><span class="code">            second --&gt; Third</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">            state Third &#123;</span></span><br><span class="line"><span class="code">                [*] --&gt; third</span></span><br><span class="line"><span class="code">                third --&gt; [*]</span></span><br><span class="line"><span class="code">            &#125;</span></span><br><span class="line"><span class="code">        &#125;</span></span><br><span class="line"><span class="code">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+    [*] --> First
+    state First {
+        [*] --> Second
+
+        state Second {
+            [*] --> second
+            second --> Third
+
+            state Third {
+                [*] --> third
+                third --> [*]
+            }
+        }
+    }</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">    [*] --&gt; First</span></span><br><span class="line"><span class="code">    First --&gt; Second</span></span><br><span class="line"><span class="code">    First --&gt; Third</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    state First &#123;</span></span><br><span class="line"><span class="code">        [*] --&gt; fir</span></span><br><span class="line"><span class="code">        fir --&gt; [*]</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    state Second &#123;</span></span><br><span class="line"><span class="code">        [*] --&gt; sec</span></span><br><span class="line"><span class="code">        sec --&gt; [*]</span></span><br><span class="line"><span class="code">    &#125;</span></span><br><span class="line"><span class="code">    state Third &#123;</span></span><br><span class="line"><span class="code">        [*] --&gt; thi</span></span><br><span class="line"><span class="code">        thi --&gt; [*]</span></span><br><span class="line"><span class="code">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+    [*] --> First
+    First --> Second
+    First --> Third
+
+    state First {
+        [*] --> fir
+        fir --> [*]
+    }
+    state Second {
+        [*] --> sec
+        sec --> [*]
+    }
+    state Third {
+        [*] --> thi
+        thi --> [*]
+    }</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">    state fork_state &lt;&lt;fork&gt;&gt;</span></span><br><span class="line"><span class="code">      [*] --&gt; fork_state</span></span><br><span class="line"><span class="code">      fork_state --&gt; State2</span></span><br><span class="line"><span class="code">      fork_state --&gt; State3</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">      state join_state &lt;&lt;join&gt;&gt;</span></span><br><span class="line"><span class="code">      State2 --&gt; join_state</span></span><br><span class="line"><span class="code">      State3 --&gt; join_state</span></span><br><span class="line"><span class="code">      join_state --&gt; State4</span></span><br><span class="line"><span class="code">      State4 --&gt; [*]</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+    state fork_state <<fork>>
+      [*] --> fork_state
+      fork_state --> State2
+      fork_state --> State3
+
+      state join_state <<join>>
+      State2 --> join_state
+      State3 --> join_state
+      join_state --> State4
+      State4 --> [*]</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">        State1: The state with a note</span></span><br><span class="line"><span class="code">        note right of State1</span></span><br><span class="line"><span class="code">            Important information! You can write</span></span><br><span class="line"><span class="code">            notes.</span></span><br><span class="line"><span class="code">        end note</span></span><br><span class="line"><span class="code">        State1 --&gt; State2</span></span><br><span class="line"><span class="code">        note left of State2 : This is the note to the left.</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+        State1: The state with a note
+        note right of State1
+            Important information! You can write
+            notes.
+        end note
+        State1 --> State2
+        note left of State2 : This is the note to the left.</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">stateDiagram-v2</span><br><span class="line"><span class="code">    [*] --&gt; Active</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    state Active &#123;</span></span><br><span class="line"><span class="code">        [*] --&gt; NumLockOff</span></span><br><span class="line"><span class="code">        NumLockOff --&gt; NumLockOn : EvNumLockPressed</span></span><br><span class="line"><span class="code">        NumLockOn --&gt; NumLockOff : EvNumLockPressed</span></span><br><span class="line"><span class="code">        --</span></span><br><span class="line"><span class="code">        [*] --&gt; CapsLockOff</span></span><br><span class="line"><span class="code">        CapsLockOff --&gt; CapsLockOn : EvCapsLockPressed</span></span><br><span class="line"><span class="code">        CapsLockOn --&gt; CapsLockOff : EvCapsLockPressed</span></span><br><span class="line"><span class="code">        --</span></span><br><span class="line"><span class="code">        [*] --&gt; ScrollLockOff</span></span><br><span class="line"><span class="code">        ScrollLockOff --&gt; ScrollLockOn : EvScrollLockPressed</span></span><br><span class="line"><span class="code">        ScrollLockOn --&gt; ScrollLockOff : EvScrollLockPressed</span></span><br><span class="line"><span class="code">    &#125;</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">stateDiagram-v2
+    [*] --> Active
+
+    state Active {
+        [*] --> NumLockOff
+        NumLockOff --> NumLockOn : EvNumLockPressed
+        NumLockOn --> NumLockOff : EvNumLockPressed
+        --
+        [*] --> CapsLockOff
+        CapsLockOff --> CapsLockOn : EvCapsLockPressed
+        CapsLockOn --> CapsLockOff : EvCapsLockPressed
+        --
+        [*] --> ScrollLockOff
+        ScrollLockOff --> ScrollLockOn : EvScrollLockPressed
+        ScrollLockOn --> ScrollLockOff : EvScrollLockPressed
+    }</pre>
+
+<h4 id="实体关系图（Entity-Relationship）"><a href="#实体关系图（Entity-Relationship）" class="headerlink" title="实体关系图（Entity Relationship）"></a>实体关系图（Entity Relationship）</h4><blockquote>
+<p>An entity–relationship model (or ER model) describes interrelated things of interest in a specific domain of knowledge. A basic ER model is composed of entity types (which classify the things of interest) and specifies relationships that can exist between entities (instances of those entity types). </p>
+</blockquote>
+<p>实体-关系模型（或ER模型）描述特定知识领域中相关的事物。基本ER模型由实体类型（对感兴趣的事物进行分类）组成，并指定实体之间可能存在的关系（这些实体类型的实例）。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">erDiagram</span><br><span class="line"><span class="code">    CUSTOMER ||--o&#123; ORDER : places</span></span><br><span class="line"><span class="code">    ORDER ||--|&#123; LINE-ITEM : contains</span></span><br><span class="line"><span class="code">    CUSTOMER &#125;|..|&#123; DELIVERY-ADDRESS : uses</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses</pre>
+
+<ul>
+<li>Relationship</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Relationship</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>o|</td>
+<td>Zero or one</td>
+</tr>
+<tr>
+<td>||</td>
+<td>Exactly one</td>
+</tr>
+<tr>
+<td>o{</td>
+<td>Zero or more</td>
+</tr>
+<tr>
+<td>|{</td>
+<td>One or more</td>
+</tr>
+</tbody></table>
+<h4 id="用户体验图（User-Journey）"><a href="#用户体验图（User-Journey）" class="headerlink" title="用户体验图（User Journey）"></a>用户体验图（User Journey）</h4><blockquote>
+<p>User journeys describe at a high level of detail exactly what steps different users take to complete a specific task within a system, application or website. This technique shows the current (as-is) user workflow, and reveals areas of improvement for the to-be workflow. </p>
+</blockquote>
+<p>用户旅程详细地描述了不同用户在系统、应用程序或网站中完成特定任务所采取的步骤。这项技术显示了当前（原样）用户工作流，并揭示了未来工作流的改进领域。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">journey</span><br><span class="line"><span class="code">    title My working day</span></span><br><span class="line"><span class="code">    section Go to work</span></span><br><span class="line"><span class="code">      Make tea: 5: Me</span></span><br><span class="line"><span class="code">      Go upstairs: 3: Me</span></span><br><span class="line"><span class="code">      Do work: 1: Me, Cat</span></span><br><span class="line"><span class="code">    section Go home</span></span><br><span class="line"><span class="code">      Go downstairs: 5: Me</span></span><br><span class="line"><span class="code">      Sit down: 5: Me</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me</pre>
+
+<h4 id="甘特图（Gantt）"><a href="#甘特图（Gantt）" class="headerlink" title="甘特图（Gantt）"></a>甘特图（Gantt）</h4><blockquote>
+<p>A Gantt chart is a type of bar chart, first developed by Karol Adamiecki in 1896, and independently by Henry Gantt in the 1910s, that illustrates a project schedule and the amount of time it would take for any one project to finish. Gantt charts illustrate number of days between the start and finish dates of the terminal elements and summary elements of a project.</p>
+</blockquote>
+<p>甘特图是一种条形图，由Karol Adamiecki于1896年首次开发，由Henry Gantt于1910年独立开发，用于说明项目进度和任何一个项目完成所需的时间。甘特图显示了项目的终端元素和摘要元素的开始日期和完成日期之间的天数。</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">gantt</span><br><span class="line"><span class="code">    dateFormat  YYYY-MM-DD</span></span><br><span class="line"><span class="code">    title       Adding GANTT diagram functionality to mermaid</span></span><br><span class="line"><span class="code">    excludes    weekends</span></span><br><span class="line"><span class="code">    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week (&quot;sunday&quot;) or &quot;weekends&quot;, but not the word &quot;weekdays&quot;.)</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    section A section</span></span><br><span class="line"><span class="code">    Completed task            :done,    des1, 2014-01-06,2014-01-08</span></span><br><span class="line"><span class="code">    Active task               :active,  des2, 2014-01-09, 3d</span></span><br><span class="line"><span class="code">    Future task               :         des3, after des2, 5d</span></span><br><span class="line"><span class="code">    Future task2              :         des4, after des3, 5d</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    section Critical tasks</span></span><br><span class="line"><span class="code">    Completed task in the critical line :crit, done, 2014-01-06,24h</span></span><br><span class="line"><span class="code">    Implement parser and jison          :crit, done, after des1, 2d</span></span><br><span class="line"><span class="code">    Create tests for parser             :crit, active, 3d</span></span><br><span class="line"><span class="code">    Future task in critical line        :crit, 5d</span></span><br><span class="line"><span class="code">    Create tests for renderer           :2d</span></span><br><span class="line"><span class="code">    Add to mermaid                      :1d</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    section Documentation</span></span><br><span class="line"><span class="code">    Describe gantt syntax               :active, a1, after des1, 3d</span></span><br><span class="line"><span class="code">    Add gantt diagram to demo page      :after a1  , 20h</span></span><br><span class="line"><span class="code">    Add another diagram to demo page    :doc1, after a1  , 48h</span></span><br><span class="line"><span class="code"></span></span><br><span class="line"><span class="code">    section Last section</span></span><br><span class="line"><span class="code">    Describe gantt syntax               :after doc1, 3d</span></span><br><span class="line"><span class="code">    Add gantt diagram to demo page      :20h</span></span><br><span class="line"><span class="code">    Add another diagram to demo page    :48h</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">gantt
+    dateFormat  YYYY-MM-DD
+    title       Adding GANTT diagram functionality to mermaid
+    excludes    weekends
+    %% (`excludes` accepts specific dates in YYYY-MM-DD format, days of the week ("sunday") or "weekends", but not the word "weekdays".)
+
+    section A section
+    Completed task            :done,    des1, 2014-01-06,2014-01-08
+    Active task               :active,  des2, 2014-01-09, 3d
+    Future task               :         des3, after des2, 5d
+    Future task2              :         des4, after des3, 5d
+
+    section Critical tasks
+    Completed task in the critical line :crit, done, 2014-01-06,24h
+    Implement parser and jison          :crit, done, after des1, 2d
+    Create tests for parser             :crit, active, 3d
+    Future task in critical line        :crit, 5d
+    Create tests for renderer           :2d
+    Add to mermaid                      :1d
+
+    section Documentation
+    Describe gantt syntax               :active, a1, after des1, 3d
+    Add gantt diagram to demo page      :after a1  , 20h
+    Add another diagram to demo page    :doc1, after a1  , 48h
+
+    section Last section
+    Describe gantt syntax               :after doc1, 3d
+    Add gantt diagram to demo page      :20h
+    Add another diagram to demo page    :48h</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">graph LR</span><br><span class="line"><span class="code">	A-.-|hello|B</span></span><br></pre></td></tr></table></figure>
+
+<pre class="mermaid">graph LR
+    A-.-|hello|B</pre>
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2021年10月27日 07:13</p>
+        <p>原始链接： <a class="post-url" href="/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" title="mermaid使用手册">https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/</a></p>
+        <footer>
+            <a href="https://yclii.github.io/workbook">
+                <img src="/workbook/images/banner.jpg" alt="ycli">
+                ycli
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果文章对你有用，可以打赏一下作者
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/workbook/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/workbook/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/workbook/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/workbook/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/workbook/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/&title=《mermaid使用手册》 — 李一称的博客&pic=images/logo/tools.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/&title=《mermaid使用手册》 — 李一称的博客&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《mermaid使用手册》 — 李一称的博客&url=https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/&via=https://yclii.github.io/workbook" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://yclii.github.io/workbook/2021/05/21/mermaid%E4%BD%BF%E7%94%A8%E6%89%8B%E5%86%8C/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+  <li class="article-footer-tags">
+    <i class="fa fa-tags"></i>
+      
+    <a href="/workbook/tags/mermaid/" class="color3">mermaid</a>
+      
+  </li>
+
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85"><span class="post-toc-text">安装</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%9B%BE%E8%A1%A8%E7%B1%BB%E5%9E%8B"><span class="post-toc-text">图表类型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%B5%81%E7%A8%8B%E5%9B%BE%EF%BC%88FlowChart%EF%BC%89"><span class="post-toc-text">流程图（FlowChart）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%97%B6%E5%BA%8F%E5%9B%BE%EF%BC%88Sequence%EF%BC%89"><span class="post-toc-text">时序图（Sequence）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%B1%BB%E5%9B%BE%EF%BC%88Class%EF%BC%89"><span class="post-toc-text">类图（Class）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%8A%B6%E6%80%81%E5%9B%BE%EF%BC%88State%EF%BC%89"><span class="post-toc-text">状态图（State）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%9E%E4%BD%93%E5%85%B3%E7%B3%BB%E5%9B%BE%EF%BC%88Entity-Relationship%EF%BC%89"><span class="post-toc-text">实体关系图（Entity Relationship）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%A8%E6%88%B7%E4%BD%93%E9%AA%8C%E5%9B%BE%EF%BC%88User-Journey%EF%BC%89"><span class="post-toc-text">用户体验图（User Journey）</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E7%94%98%E7%89%B9%E5%9B%BE%EF%BC%88Gantt%EF%BC%89"><span class="post-toc-text">甘特图（Gantt）</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Docker技术入门与实践学习笔记
+        
+      </span>
+    </a>
+  
+  
+    <a href="/workbook/2021/05/20/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">git学习笔记</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="mermaid使用手册" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvrD3KQG';
+        var conf = 'prod_18ca86cbd238ba30e70d774e741ff021';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	 <!--
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+	 -->
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2021 ycli<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://yclii.github.io/workbook",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/workbook/categories/devOpts/">devOpts</a><a class="category-link" href="/workbook/categories/maven/">maven</a><a class="category-link" href="/workbook/categories/mysql/">mysql</a><a class="category-link" href="/workbook/categories/oracle/">oracle</a><a class="category-link" href="/workbook/categories/tool/">tool</a><a class="category-link" href="/workbook/categories/vscode/">vscode</a><a class="category-link" href="/workbook/categories/vue/">vue</a><a class="category-link" href="/workbook/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/workbook/tags/AWR/" style="font-size: 20px;">AWR</a> <a href="/workbook/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/workbook/tags/docker/" style="font-size: 10px;">docker</a> <a href="/workbook/tags/git/" style="font-size: 10px;">git</a> <a href="/workbook/tags/maven/" style="font-size: 10px;">maven</a> <a href="/workbook/tags/mermaid/" style="font-size: 10px;">mermaid</a> <a href="/workbook/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/workbook/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/workbook/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/workbook/tags/vue/" style="font-size: 20px;">vue</a> <a href="/workbook/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/workbook/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">多进程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/workbook/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/workbook/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/workbook/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="//github.com/yclii">
+                    <i class="fa fa-github"></i><span>GitHub</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/workbook/tags/AWR/" style="font-size: 20px;">AWR</a> <a href="/workbook/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/workbook/tags/docker/" style="font-size: 10px;">docker</a> <a href="/workbook/tags/git/" style="font-size: 10px;">git</a> <a href="/workbook/tags/maven/" style="font-size: 10px;">maven</a> <a href="/workbook/tags/mermaid/" style="font-size: 10px;">mermaid</a> <a href="/workbook/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/workbook/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/workbook/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/workbook/tags/vue/" style="font-size: 20px;">vue</a> <a href="/workbook/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/workbook/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">多进程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/workbook/js/search.js"></script>
+
+
+<script src="/workbook/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/workbook/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/workbook/js/animate.js"></script>
+
+
+
+  
+<script src="/workbook/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+
+  <script src="https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js"></script>
+  
+
+
+  </div>
+</body>
+</html>
