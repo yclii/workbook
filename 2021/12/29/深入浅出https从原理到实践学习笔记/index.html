@@ -3,23 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>AWR报告解析 | 李一称的博客</title>
+  <title>深入浅出https从原理到实践学习笔记 | 李一称的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
     <meta name="keywords" content="ycli,ycli's Blog" />
   
-  <meta name="description" content="概述1997-06: ECMAScript 1First edition. 1998-06: ECMAScript 2">
+  <meta name="description" content="1. HTTP介绍1.1 几个概念 web(万维网)，是互联网的一个子应用，主要包括3项技术：HTML、URL、HTTP HTTP(超文本传输协议)，由一系列规则组成，客户端和服务端共同处理这些规则，HTTP不仅定义规则，也是信息的载体 URL(统一资源标识符)，可唯一定位或标识互联网上的任何资源 HTML(超文本标记语言)，客户端(浏览器)通过HTTP接收的资源一般是HTML，HTML定义了一系">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AWR报告解析">
-<meta property="og:url" content="https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/index.html">
+<meta property="og:title" content="深入浅出https从原理到实践学习笔记">
+<meta property="og:url" content="https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="李一称的博客">
-<meta property="og:description" content="概述1997-06: ECMAScript 1First edition. 1998-06: ECMAScript 2">
+<meta property="og:description" content="1. HTTP介绍1.1 几个概念 web(万维网)，是互联网的一个子应用，主要包括3项技术：HTML、URL、HTTP HTTP(超文本传输协议)，由一系列规则组成，客户端和服务端共同处理这些规则，HTTP不仅定义规则，也是信息的载体 URL(统一资源标识符)，可唯一定位或标识互联网上的任何资源 HTML(超文本标记语言)，客户端(浏览器)通过HTTP接收的资源一般是HTML，HTML定义了一系">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-05-10T23:00:08.000Z">
-<meta property="article:modified_time" content="2021-10-27T11:13:08.609Z">
+<meta property="article:published_time" content="2021-12-29T19:32:40.000Z">
+<meta property="article:modified_time" content="2021-12-29T07:53:02.263Z">
 <meta property="article:author" content="ycli">
-<meta property="article:tag" content="oracle">
-<meta property="article:tag" content="AWR">
+<meta property="article:tag" content="SSL,TLS,OpenSSL">
 <meta name="twitter:card" content="summary">
   
   
@@ -110,14 +109,14 @@
     </div>
 </header>
       <div class="outer">
-        <section id="main" class="body-wrap"><article id="post-AWR报告解析" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main" class="body-wrap"><article id="post-深入浅出https从原理到实践学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="post-title" itemprop="name">
-      AWR报告解析
+      深入浅出https从原理到实践学习笔记
     </h1>
     <div class="post-title-bar">
       <ul>
@@ -125,12 +124,12 @@
               <li>
                   <i class="fa fa-book"></i>
                   
-                      <a href="/workbook/categories/oracle/">oracle</a>
+                      <a href="/workbook/categories/HTTPS/">HTTPS</a>
                   
               </li>
           
         <li>
-          <i class="fa fa-calendar"></i>  2021-05-10
+          <i class="fa fa-calendar"></i>  2021-12-29
         </li>
         <li>
           <i class="fa fa-eye"></i>
@@ -146,12 +145,78 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><h2 id="1997-06-ECMAScript-1"><a href="#1997-06-ECMAScript-1" class="headerlink" title="1997-06: ECMAScript 1"></a>1997-06: ECMAScript 1</h2><p>First edition.</p>
-<h2 id="1998-06-ECMAScript-2"><a href="#1998-06-ECMAScript-2" class="headerlink" title="1998-06: ECMAScript 2"></a>1998-06: ECMAScript 2</h2>
+            <h3 id="1-HTTP介绍"><a href="#1-HTTP介绍" class="headerlink" title="1. HTTP介绍"></a>1. HTTP介绍</h3><h4 id="1-1-几个概念"><a href="#1-1-几个概念" class="headerlink" title="1.1 几个概念"></a>1.1 几个概念</h4><ul>
+<li>web(万维网)，是互联网的一个子应用，主要包括3项技术：HTML、URL、HTTP</li>
+<li>HTTP(超文本传输协议)，由一系列规则组成，客户端和服务端共同处理这些规则，HTTP不仅定义规则，也是信息的载体</li>
+<li>URL(统一资源标识符)，可唯一定位或标识互联网上的任何资源</li>
+<li>HTML(超文本标记语言)，客户端(浏览器)通过HTTP接收的资源一般是HTML，HTML定义了一系列规则，规则主要有客户端进行解析。</li>
+</ul>
+<h4 id="1-2-HTTP版本"><a href="#1-2-HTTP版本" class="headerlink" title="1.2 HTTP版本"></a>1.2 HTTP版本</h4><p>目前版本HTTP/1.1，基于RFC2616规范，相比HTTP/0.9、HTTP/1.0，HTTP/1.1并没有太多的演变，但从性能和标准化的维度做了些优化；HTTP/2.0是下一代标准。</p>
+<h4 id="1-2-HTTP语义"><a href="#1-2-HTTP语义" class="headerlink" title="1.2 HTTP语义"></a>1.2 HTTP语义</h4><ul>
+<li><p>HTTP消息包括HTTP语义和HTML实体</p>
+</li>
+<li><p>HTTP消息包括3部分：请求行或响应行、HTTP头部（可以多个）、HTML实体(请求实体和响应实体)</p>
+</li>
+<li><p>请求行由方法、URL、HTTP版本组成（如：GET /index.html HTTP/1.1）；响应行由HTTP版本、状态码、信息提示符组成（如：HTTP/1.1 200 OK）</p>
+</li>
+<li><p>HTTP语义的重点是HTTP头部(HTTP Header)，约束客户端或服务端行为（如Accept-Encoding:gzip，表示浏览器支持的数据压缩算法是gzip，告诉服务器是否可以使用gzip算法压缩响应；Host:<a target="_blank" rel="noopener" href="http://www.baidu.com,该头部只对客户端有用,客户端在连接前需要通过dns解析出ip地址,然后连接服务器发送请求)/">www.baidu.com，该头部只对客户端有用，客户端在连接前需要通过DNS解析出IP地址，然后连接服务器发送请求）</a></p>
+</li>
+</ul>
+<h4 id="1-3-HTTP特点"><a href="#1-3-HTTP特点" class="headerlink" title="1.3 HTTP特点"></a>1.3 HTTP特点</h4><ul>
+<li>HTTP特点：无状态、跨平台</li>
+<li>HTTP协议处于网络模型的应用层，默认端口80</li>
+</ul>
+<h4 id="1-4-HTTP不安全原因"><a href="#1-4-HTTP不安全原因" class="headerlink" title="1.4 HTTP不安全原因"></a>1.4 HTTP不安全原因</h4><p>HTTP在设计之处根本没有考虑安全问题，其设计目的是数据传输与共享。</p>
+<p>HTTP不安全的原因主要包括以下3点：</p>
+<ul>
+<li>数据没有加密</li>
+<li>无法验证身份</li>
+<li>数据易篡改</li>
+</ul>
+<h4 id="1-5-攻击方式"><a href="#1-5-攻击方式" class="headerlink" title="1.5 攻击方式"></a>1.5 攻击方式</h4><p>​    SQL注入、XSS、Dos(DDos)</p>
+<h3 id="1-6-缓解安全问题的措施"><a href="#1-6-缓解安全问题的措施" class="headerlink" title="1.6 缓解安全问题的措施"></a>1.6 缓解安全问题的措施</h3><p>W3C制定Web技术标准，如HTML标准、DOM标准、CSS标准、ECMAScript标准、HTML5标准。</p>
+<p>W3C主要以HTTP头部的方式提供安全保护，以环节安全问题，如Access-Control-Allow-Origin、X-XSS-Protection、Strict-Transport-Security、Content-Security-Policy等等，如XSS攻击，服务器声明头部Content-Security-Policy，告诉浏览器只允许加载本域下的脚本文件，就能避免跨站脚本攻击。</p>
+<h3 id="2-密码学"><a href="#2-密码学" class="headerlink" title="2. 密码学"></a>2. 密码学</h3><p>HTTPS的本质就是对密码学算法的组合使用</p>
+<h4 id="2-1-密码学的四个目标"><a href="#2-1-密码学的四个目标" class="headerlink" title="2.1 密码学的四个目标"></a>2.1 密码学的四个目标</h4><ul>
+<li>机密性(隐私性)</li>
+<li>完整性</li>
+<li>身份验证</li>
+<li>不可抵赖性</li>
+</ul>
+<h4 id="2-2-OpenSSL"><a href="#2-2-OpenSSL" class="headerlink" title="2.2 OpenSSL"></a>2.2 OpenSSL</h4><p>OpenSSL是密码学中一个非常流行的底层密码库</p>
+<ul>
+<li>查看OpenSSL版本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看所有支持的命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl help</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取算法的帮助信息</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa --help</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取算法详细使用信息</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man rsa</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>构建特定版本的openssl</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 示例：构建OpenSSL-1.1.0f，避免和系统的OpenSSL库冲突</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载二进制包并解压</span></span><br><span class="line">wget https://www.openssl.org/source/openssl-1.1.0f.tar.gz</span><br><span class="line">tar -xvf openssl-1.1.0f.tar.gz</span><br><span class="line">cd openssl-1.1.0f</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看安装手册</span></span><br><span class="line">more INSTALL</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看config</span></span><br><span class="line">./config --help</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装并编译，安装目录不要和系统目录冲突（可以查看系统的安装目录 <span class="built_in">which</span> openssl）</span></span><br><span class="line">./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl</span><br><span class="line">make</span><br><span class="line">make test</span><br><span class="line">make install</span><br><span class="line">make clean</span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">/usr/local/openssl/bin/openssl version</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-3-随机数"><a href="#2-3-随机数" class="headerlink" title="2.3 随机数"></a>2.3 随机数</h4><ul>
+<li>随机数类型</li>
+</ul>
+
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2021年10月27日 07:13</p>
-        <p>原始链接： <a class="post-url" href="/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/" title="AWR报告解析">https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/</a></p>
+        <p>最后更新： 2021年12月29日 02:53</p>
+        <p>原始链接： <a class="post-url" href="/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="深入浅出https从原理到实践学习笔记">https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></p>
         <footer>
             <a href="https://yclii.github.io/workbook">
                 <img src="/workbook/images/banner.jpg" alt="ycli">
@@ -208,7 +273,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/&title=《AWR报告解析》 — 李一称的博客&pic=images/logo/oracle.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=《深入浅出https从原理到实践学习笔记》 — 李一称的博客&pic=images/logo/xx.png" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -218,22 +283,22 @@
             </a>
           </li>
           <li>
-            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/&title=《AWR报告解析》 — 李一称的博客&source=" data-title="QQ">
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=《深入浅出https从原理到实践学习笔记》 — 李一称的博客&source=" data-title="QQ">
               <i class="fa fa-qq"></i>
             </a>
           </li>
           <li>
-            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/" data-title="Facebook">
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title="Facebook">
               <i class="fa fa-facebook"></i>
             </a>
           </li>
           <li>
-            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《AWR报告解析》 — 李一称的博客&url=https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/&via=https://yclii.github.io/workbook" data-title="Twitter">
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《深入浅出https从原理到实践学习笔记》 — 李一称的博客&url=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&via=https://yclii.github.io/workbook" data-title="Twitter">
               <i class="fa fa-twitter"></i>
             </a>
           </li>
           <li>
-            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/" data-title="Google+">
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" data-title="Google+">
               <i class="fa fa-google-plus"></i>
             </a>
           </li>
@@ -243,7 +308,7 @@
 <div class="post-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;" id="wxShare-close">×</a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://yclii.github.io/workbook/2021/05/10/AWR%E6%8A%A5%E5%91%8A%E8%A7%A3%E6%9E%90/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
 </div>
 
 <div class="mask"></div>
@@ -255,9 +320,7 @@
   <li class="article-footer-tags">
     <i class="fa fa-tags"></i>
       
-    <a href="/workbook/tags/oracle/" class="color2">oracle</a>
-      
-    <a href="/workbook/tags/AWR/" class="color4">AWR</a>
+    <a href="/workbook/tags/SSL,TLS,OpenSSL/" class="color1">SSL,TLS,OpenSSL</a>
       
   </li>
 
@@ -270,26 +333,16 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1997-06-ECMAScript-1"><span class="post-toc-text">1997-06: ECMAScript 1</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#1998-06-ECMAScript-2"><span class="post-toc-text">1998-06: ECMAScript 2</span></a>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-HTTP%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">1. HTTP介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-%E5%87%A0%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="post-toc-text">1.1 几个概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-HTTP%E7%89%88%E6%9C%AC"><span class="post-toc-text">1.2 HTTP版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-HTTP%E8%AF%AD%E4%B9%89"><span class="post-toc-text">1.2 HTTP语义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-HTTP%E7%89%B9%E7%82%B9"><span class="post-toc-text">1.3 HTTP特点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-HTTP%E4%B8%8D%E5%AE%89%E5%85%A8%E5%8E%9F%E5%9B%A0"><span class="post-toc-text">1.4 HTTP不安全原因</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-5-%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F"><span class="post-toc-text">1.5 攻击方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-6-%E7%BC%93%E8%A7%A3%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%AA%E6%96%BD"><span class="post-toc-text">1.6 缓解安全问题的措施</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="post-toc-text">2. 密码学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E5%9B%9B%E4%B8%AA%E7%9B%AE%E6%A0%87"><span class="post-toc-text">2.1 密码学的四个目标</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-OpenSSL"><span class="post-toc-text">2.2 OpenSSL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="post-toc-text">2.3 随机数</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
 
 <nav id="article-nav">
   
-    <a href="/workbook/2021/05/20/git%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
-
-      <span class="article-nav-title">
-        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
-        
-          git学习笔记
-        
-      </span>
-    </a>
   
-  
-    <a href="/workbook/2021/05/09/vscode%E5%BC%80%E5%8F%91vue%E7%9A%84%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%8F%92%E4%BB%B6/" id="article-nav-older" class="article-nav-link-wrap">
-      <span class="article-nav-title">vscode开发vue的配置与插件</span>
+    <a href="/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">Docker技术入门与实践学习笔记</span>
       <i class="fa fa-hand-o-right" aria-hidden="true"></i>
     </a>
   
@@ -298,7 +351,7 @@
 
 
     
-        <div id="SOHUCS" sid="AWR报告解析" ></div>
+        <div id="SOHUCS" sid="深入浅出https从原理到实践学习笔记" ></div>
 <script type="text/javascript">
     (function(){
         var appid = 'cyvrD3KQG';
