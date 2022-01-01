@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. HTTP介绍1.1 几个概念 web(万维网)，是互联网的一个子应用，主要包括3项技术：HTML、URL、HTTP HTTP(超文本传输协议)，由一系列规则组成，客户端和服务端共同处理这些规则，HTTP不仅定义规则，也是信息的载体 URL(统一资源标识符)，可唯一定位或标识互联网上的任何资源 HTML(超文本标记语言)，客户端(浏览器)通过HTTP接收的资源一般是HTML，HTML定义了一系">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-29T19:32:40.000Z">
-<meta property="article:modified_time" content="2021-12-29T07:53:02.263Z">
+<meta property="article:modified_time" content="2022-01-01T07:14:02.449Z">
 <meta property="article:author" content="ycli">
 <meta property="article:tag" content="SSL,TLS,OpenSSL">
 <meta name="twitter:card" content="summary">
@@ -159,7 +159,7 @@
 </li>
 <li><p>请求行由方法、URL、HTTP版本组成（如：GET /index.html HTTP/1.1）；响应行由HTTP版本、状态码、信息提示符组成（如：HTTP/1.1 200 OK）</p>
 </li>
-<li><p>HTTP语义的重点是HTTP头部(HTTP Header)，约束客户端或服务端行为（如Accept-Encoding:gzip，表示浏览器支持的数据压缩算法是gzip，告诉服务器是否可以使用gzip算法压缩响应；Host:<a target="_blank" rel="noopener" href="http://www.baidu.com,该头部只对客户端有用,客户端在连接前需要通过dns解析出ip地址,然后连接服务器发送请求)/">www.baidu.com，该头部只对客户端有用，客户端在连接前需要通过DNS解析出IP地址，然后连接服务器发送请求）</a></p>
+<li><p>HTTP语义的重点是HTTP头部(HTTP Header)，约束客户端或服务端行为（如Accept-Encoding:gzip，表示浏览器支持的数据压缩算法是gzip，告诉服务器是否可以使用gzip算法压缩响应；Host:<code>www.baidu.com</code>，该头部只对客户端有用，客户端在连接前需要通过DNS解析出IP地址，然后连接服务器发送请求）</p>
 </li>
 </ul>
 <h4 id="1-3-HTTP特点"><a href="#1-3-HTTP特点" class="headerlink" title="1.3 HTTP特点"></a>1.3 HTTP特点</h4><ul>
@@ -175,7 +175,7 @@
 </ul>
 <h4 id="1-5-攻击方式"><a href="#1-5-攻击方式" class="headerlink" title="1.5 攻击方式"></a>1.5 攻击方式</h4><p>​    SQL注入、XSS、Dos(DDos)</p>
 <h3 id="1-6-缓解安全问题的措施"><a href="#1-6-缓解安全问题的措施" class="headerlink" title="1.6 缓解安全问题的措施"></a>1.6 缓解安全问题的措施</h3><p>W3C制定Web技术标准，如HTML标准、DOM标准、CSS标准、ECMAScript标准、HTML5标准。</p>
-<p>W3C主要以HTTP头部的方式提供安全保护，以环节安全问题，如Access-Control-Allow-Origin、X-XSS-Protection、Strict-Transport-Security、Content-Security-Policy等等，如XSS攻击，服务器声明头部Content-Security-Policy，告诉浏览器只允许加载本域下的脚本文件，就能避免跨站脚本攻击。</p>
+<p>W3C主要以HTTP头部的方式提供安全保护，以缓解安全问题，如Access-Control-Allow-Origin、X-XSS-Protection、Strict-Transport-Security、Content-Security-Policy等等，如XSS攻击，服务器声明头部Content-Security-Policy，告诉浏览器只允许加载本域下的脚本文件，就能避免跨站脚本攻击。</p>
 <h3 id="2-密码学"><a href="#2-密码学" class="headerlink" title="2. 密码学"></a>2. 密码学</h3><p>HTTPS的本质就是对密码学算法的组合使用</p>
 <h4 id="2-1-密码学的四个目标"><a href="#2-1-密码学的四个目标" class="headerlink" title="2.1 密码学的四个目标"></a>2.1 密码学的四个目标</h4><ul>
 <li>机密性(隐私性)</li>
@@ -183,7 +183,12 @@
 <li>身份验证</li>
 <li>不可抵赖性</li>
 </ul>
-<h4 id="2-2-OpenSSL"><a href="#2-2-OpenSSL" class="headerlink" title="2.2 OpenSSL"></a>2.2 OpenSSL</h4><p>OpenSSL是密码学中一个非常流行的底层密码库</p>
+<h4 id="2-2-OpenSSL"><a href="#2-2-OpenSSL" class="headerlink" title="2.2 OpenSSL"></a>2.2 OpenSSL</h4><p>OpenSSL是密码学中一个非常流行的底层密码库，封装了所有密码学算法、证书管理、TLS/SSL协议实现。</p>
+<p>包含两种类型的库：</p>
+<ol>
+<li>crypto库函数，具体的密码学算法使用库，如MD5、RSA、DES等</li>
+<li>EVP接口，高层次库，基于crypto库函数进一步封装，便于开发者调用</li>
+</ol>
 <ul>
 <li>查看OpenSSL版本</li>
 </ul>
@@ -205,17 +210,429 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man rsa</span><br></pre></td></tr></table></figure>
 
 <ul>
+<li>显示系统支持的加密算法</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl list --cipher-algorithms</span><br></pre></td></tr></table></figure>
+
+<ul>
 <li>构建特定版本的openssl</li>
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 示例：构建OpenSSL-1.1.0f，避免和系统的OpenSSL库冲突</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载二进制包并解压</span></span><br><span class="line">wget https://www.openssl.org/source/openssl-1.1.0f.tar.gz</span><br><span class="line">tar -xvf openssl-1.1.0f.tar.gz</span><br><span class="line">cd openssl-1.1.0f</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看安装手册</span></span><br><span class="line">more INSTALL</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看config</span></span><br><span class="line">./config --help</span><br><span class="line"><span class="meta">#</span><span class="bash"> 安装并编译，安装目录不要和系统目录冲突（可以查看系统的安装目录 <span class="built_in">which</span> openssl）</span></span><br><span class="line">./config --prefix=/usr/local/openssl --openssldir=/usr/local/openssl</span><br><span class="line">make</span><br><span class="line">make test</span><br><span class="line">make install</span><br><span class="line">make clean</span><br><span class="line"><span class="meta">#</span><span class="bash"> 验证</span></span><br><span class="line">/usr/local/openssl/bin/openssl version</span><br></pre></td></tr></table></figure>
 
 <h4 id="2-3-随机数"><a href="#2-3-随机数" class="headerlink" title="2.3 随机数"></a>2.3 随机数</h4><ul>
+<li>随机数生成器评判的4个指标</li>
+</ul>
+<ol>
+<li>效率</li>
+</ol>
+<p>在短时间内生成大量的随机数</p>
+<ol start="2">
+<li>随机性</li>
+</ol>
+<p>生成的随机数只要不存在统计学偏差，就说明具备随机性</p>
+<ol start="3">
+<li>不可预测性</li>
+</ol>
+<p>随机数之间存在一定的关联，如通过以前的随机数推断出后续的随机数，说明不具备不可预测性。</p>
+<p>密码学中的随机数必须具备不可预测性</p>
+<ol start="4">
+<li>不可重现性</li>
+</ol>
+<p>不管经过多长时间，不会产生完全相同的随机数</p>
+<ul>
 <li>随机数类型</li>
 </ul>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>生成类型</th>
+<th>特性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>真正的随机数生成器(TRNG)</td>
+<td>硬件生成</td>
+<td>效率高、随机性、不可预测性、不可重现性</td>
+<td>需要从物理设备获取</td>
+</tr>
+<tr>
+<td>伪随机数生成器(PRNG)</td>
+<td>软件生成</td>
+<td>效率高、随机性</td>
+<td>通过算法获取</td>
+</tr>
+<tr>
+<td>密码学伪随机数生成器(CPRNG)</td>
+<td>软件生成</td>
+<td>效率高、随机性、不可预测性</td>
+<td>通过密码学算法获取</td>
+</tr>
+</tbody></table>
+<ul>
+<li>随机数生成器原理</li>
+</ul>
+<p>随机数生成器内部维护一个状态，对于TRNG，内部状态值来自硬件设备，称为熵(entrory)，比如动态的时间、变化的温度、鼠标位置等；对于PRNG、CPRNG，内部状态值来自模拟的数值，称为种子(seed)。</p>
+<p>每次生成随机数，熵或种子都会变化，这样产生的随机数就不一样；若每次熵或种子是一样的，生成的随机数也是相同的。</p>
+<ul>
+<li>常见的随机数生成器</li>
+</ul>
+<ol>
+<li>使用外部熵生成随机数</li>
+</ol>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head -c 32 /dev/urandom | openssl enc -base64</span><br></pre></td></tr></table></figure>
 
+<ol start="2">
+<li>伪随机数生成器(算法)</li>
+</ol>
+<p>Blum Blum Shub、Mersenne Twister(马特赛特旋转演算法)、Linear congruential generator(线性同余法)</p>
+<ol start="3">
+<li>密码学随机数生成器(算法)</li>
+</ol>
+<p>块密码算法CTR模式、摘要算法、流密码算法</p>
+<p>产生的随机数有：密钥、初始化向量(IV)、nonce、salt</p>
+<h4 id="2-4-密码学Hash算法"><a href="#2-4-密码学Hash算法" class="headerlink" title="2.4 密码学Hash算法"></a>2.4 密码学Hash算法</h4><ul>
+<li>公式</li>
+</ul>
+<p>摘要/散列值/指纹=hash(消息)</p>
+<ul>
+<li>特点</li>
+</ul>
+<ol>
+<li>不管消息长度多少，最终的摘要值长度是相同的</li>
+<li>相同的消息总是能得到相同的摘要值</li>
+<li>不管多长的消息，hash算法非常快速</li>
+<li>单向性，通过摘要值很难逆向计算原始消息</li>
+<li>原始消息一旦修改，最终的摘要值也会产生变化</li>
+</ol>
+<ul>
+<li>基于hash算法的密码学算法</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>算法名称</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>伪随机数生成器</td>
+<td>利用密码学hash算法单向性，可以构造随机数</td>
+</tr>
+<tr>
+<td>MAC消息验证码</td>
+<td>HMAC就是基于密码学hash算法实现的MAC算法</td>
+</tr>
+<tr>
+<td>基于口令的加密算法</td>
+<td>通过口令和密码学hash算法生成密钥</td>
+</tr>
+<tr>
+<td>数字签名</td>
+<td>数字签名算法对密码学hash算法生成的摘要进行签名</td>
+</tr>
+<tr>
+<td>块密钥加密算法</td>
+<td>基于密码学hash算法能生成块密钥加密算法，同时块密钥加密算法也能生成一个密码学hash算法</td>
+</tr>
+</tbody></table>
+<ul>
+<li>实际用途</li>
+</ul>
+<p>文件比较、身份(口令)验证等</p>
+<ul>
+<li>密码学hash算法和hash算法</li>
+</ul>
+<p>密码学hash算法拥有hash算法的所有特性，从安全的角度，密码学hash算法还有其他特性；基于普通hash算法实现的应用，如hash表、校验和却不能用于密码学</p>
+<ul>
+<li>基于安全的特性</li>
+</ul>
+<ol>
+<li>强抗碰撞性</li>
+</ol>
+<p>若两个不相同的值能够得到同样的摘要值，表示产生了hash碰撞，此时违反强抗碰撞性</p>
+<ol start="2">
+<li>弱抗碰撞性</li>
+</ol>
+<p>若给定一个消息以及这个消息的摘要值，能找到一条不同的消息也具有相同的摘要值，此时违反弱抗碰撞性</p>
+<ol start="3">
+<li>单向性</li>
+</ol>
+<p>若给定一个摘要值能计算出原始消息，此时违反单向性</p>
+<p>破解难度：强抗碰撞性 &lt; 弱抗碰撞性 &lt; 单向性</p>
+<ul>
+<li>分类</li>
+</ul>
+<p>MD5(目前证明已不安全)、SHA族类算法</p>
+<table>
+    <head>
+        <tr><th>分类</th><th>算法</th><th>输入值最大长度(bit)</th><th>输出值长度(bit)</th><th>说明</th></tr>
+    </head>
+    <tbody>
+        <tr><td>MD5</td><td>MD5</td><td>无限制</td><td>128</td><td>实践中已违反硬抗碰撞性，且理论上也不具备弱抗碰撞性</td></tr>
+        <tr><td>SHA-1</td><td>SHA-1</td><td>2^64-1</td><td>160</td><td>实践中已违反硬抗碰撞性</td></tr>
+        <tr><td rowspan="4">SHA-2</td><td>SHA-256</td><td>2^64-1</td><td>256</td><td>安全使用</td></tr>
+        <tr><td>SHA-512</td><td>2^128-1</td><td>512</td><td>安全使用</td></tr>
+        <tr><td>SHA-224</td><td>2^64-1</td><td>224</td><td>安全使用</td></tr>
+        <tr><td>SHA-384</td><td>2^128-1</td><td>384</td><td>安全使用</td></tr>
+        <tr><td rowspan="4">SHA-3</td><td>SHA3-256</td><td>2^64-1</td><td>256</td><td>安全使用</td></tr>
+        <tr><td>SHA3-512</td><td>2^128-1</td><td>512</td><td>安全使用</td></tr>
+        <tr><td>SHA3-224</td><td>2^64-1</td><td>224</td><td>安全使用</td></tr>
+        <tr><td>SHA3-384</td><td>2^128-1</td><td>384</td><td>安全使用</td></tr>
+    </tbody>
+</table>
+
+
+<h4 id="2-5-数据加密"><a href="#2-5-数据加密" class="headerlink" title="2.5 数据加密"></a>2.5 数据加密</h4><ul>
+<li>分类</li>
+</ul>
+<p>对称加密算法、非对称加密算法（即公开加密算法）</p>
+<h5 id="2-5-1-对称加密算法"><a href="#2-5-1-对称加密算法" class="headerlink" title="2.5.1 对称加密算法"></a>2.5.1 对称加密算法</h5><ol>
+<li>密钥是一串数字，加密和解密使用同一个密钥</li>
+<li>加密和解密是一个互逆过程</li>
+<li>对称加密算法包括：块密码算法、流密码算法</li>
+</ol>
+<table>
+    <head>
+        <tr><th>分类</th><th>算法</th><th>密钥长度(bit)</th><th>分组长度(bit)</th><th>说明</th></tr>
+    </head>
+    <tbody>
+        <tr><td rowspan="5">块密码</td><td>AES</td><td>128、192、256</td><td>128</td><td>对称加密算法的标准算法</td></tr>
+        <tr><td>DES</td><td>56</td><td>64</td><td>早期对称加密算法标准</td></td></tr>
+        <tr><td>3DES</td><td>128、168</td><td>64</td><td>三重DES算法</td></tr>
+        <tr><td>IDEA算法</td><td>128、192、256</td><td>128</td><td>不太常见的算法</td></tr>
+        <tr><td>SEED算法</td><td>128</td><td>128</td><td>不太常见的算法</td></tr>
+    </tbody>
+</table>
+
+<table>
+    <head>
+        <tr><th>分类</th><th>算法</th><th>密钥长度(bit)</th><th>说明</th></tr>
+    </head>
+    <tbody>
+        <tr><td rowspan="5">流密码</td><td>RC4</td><td>可变密钥长度，建议2048</td><td>已证明不安全</td></tr>
+        <tr><td>ChaCha</td><td>可变密钥长度，建议256</td><td>一种新型的流密码算法</td></td></tr>
+    </tbody>
+</table>
+
+<ul>
+<li>块密码算法</li>
+</ul>
+<ol>
+<li>对固定长度（即分组长度）的数据块进行迭代处理，得到的密文长度和明文长度相同</li>
+<li>块密码的迭代模式包括：ECB、CBC、CTR</li>
+</ol>
+<p>ECB模式：</p>
+<p>加解密每个数据块的密钥都相同；可并行加解密数据块；若固定的明文，因密钥也是固定的，很容易造成安全问题</p>
+<p>加密：</p>
+<pre class="mermaid">graph TD
+subgraph 数据块n
+plainn[明文]-->encoden[加密]
+keyn[密钥]-->encoden[加密]
+encoden[加密]-->ciphern[密文]
+end
+subgraph 数据块2
+plain2[明文]-->encode2[加密]
+key2[密钥]-->encode2[加密]
+encode2[加密]-->cipher2[密文]
+end
+subgraph 数据块1
+plain1[明文]-->encode1[加密]
+key1[密钥]-->encode1[加密]
+encode1[加密]-->cipher1[密文]
+end</pre>
+
+<p>解密：</p>
+<pre class="mermaid">graph TD
+subgraph 数据块n
+ciphern[密文]-->decoden[解密]
+keyn[密钥]-->decoden[解密]
+decoden[解密]-->plainn[明文]
+end
+subgraph 数据块2
+cipher2[密文]-->decode2[解密]
+key2[密钥]-->decode2[解密]
+decode2[解密]-->plain2[明文]
+end
+subgraph 数据块1
+cipher1[密文]-->decode1[解密]
+key1[密钥]-->decode1[解密]
+decode1[解密]-->plain1[明文]
+end</pre>
+
+<p>CBC模式：</p>
+<p>首先需生成随机的初始化向量IV，长度等于分组长度；运算不能并行处理</p>
+<p>加密：</p>
+<pre class="mermaid">graph LR
+cipher2[密文]-->xorn[XOR结果]
+subgraph 数据块n
+plainn[明文]-->xorn[XOR结果]
+keyn[密钥]-->encoden[加密]
+xorn[XOR结果]-->encoden[加密]
+encoden[加密]-->ciphern[密文]
+end
+cipher1[密文]-->xor2[XOR结果]
+subgraph 数据块2
+plain2[明文]-->xor2[XOR结果]
+key2[密钥]-->encode2[加密]
+xor2[XOR结果]-->encode2[加密]
+encode2[加密]-->cipher2[密文]
+end
+subgraph 数据块1
+plain1[明文]-->xor1[XOR结果]
+IV1[IV]-->xor1[XOR结果]
+key1[密钥]-->encode1[加密]
+xor1[XOR结果]-->encode1[加密]
+encode1[加密]-->cipher1[密文]
+end</pre>
+
+<p>解密：</p>
+<pre class="mermaid">graph LR
+decode2[解密]-->xorn[XOR]
+subgraph 数据块n
+ciphern[密文]-->decoden[解密]
+keyn[密钥]-->decoden[解密]
+decoden[解密]-->xorn[XOR]
+xorn-->plainn[明文]
+end
+decode1[解密]-->xor2[XOR]
+subgraph 数据块2
+cipher2[密文]-->decode2[解密]
+key2[密钥]-->decode2[解密]
+decode2[解密]-->xor2[XOR]
+xor2-->plain2[明文]
+end
+subgraph 数据块1
+cipher1[密文]-->decode1[解密]
+key1[密钥]-->decode1[解密]
+decode1[解密]-->xor1[XOR]
+IV1[IV]-->xor1[XOR]
+xor1-->plain1[明文]
+end</pre>
+
+<p>CTR模式：</p>
+<p>首选为每个数据块需生成随机的密钥流，密钥流之间有关联关系，最简单的是密钥流递增方式，则只需生成第一块的密钥流（后续数据块递增推导），此时也叫做计数器模式；分组不需要填充；可并行加解密数据块</p>
+<p>加密：</p>
+<pre class="mermaid">graph TD
+subgraph 数据块n
+noncen["nonce(n-1)"]-->encoden[加密]
+keyn[密钥]-->encoden[加密]
+plainn[明文]-->xorn[XOR]
+encoden[加密]-->xorn[XOR]
+xorn[XOR]-->ciphern[密文]
+end
+subgraph 数据块2
+nonce2["nonce(1)"]-->encode2[加密]
+key2[密钥]-->encode2[加密]
+plain2[明文]-->xor2[XOR]
+encode2[加密]-->xor2[XOR]
+xor2[XOR]-->cipher2[密文]
+end
+subgraph 数据块1
+nonce1["nonce(0)"]-->encode1[加密]
+key1[密钥]-->encode1[加密]
+plain1[明文]-->xor1[XOR]
+encode1[加密]-->xor1[XOR]
+xor1[XOR]-->cipher1[密文]
+end</pre>
+
+<p>解密：</p>
+<pre class="mermaid">graph TD
+subgraph 数据块n
+noncen["nonce(n-1)"]-->encoden[加密]
+keyn[密钥]-->encoden[加密]
+ciphern[密文]-->xorn[XOR]
+encoden[加密]-->xorn[XOR]
+xorn[XOR]-->plainn[明文]
+end
+subgraph 数据块2
+nonce2["nonce(1)"]-->encode2[加密]
+key2[密钥]-->encode2[加密]
+cipher2[密文]-->xor2[XOR]
+encode2[加密]-->xor2[XOR]
+xor2[XOR]-->plain2[明文]
+end
+subgraph 数据块1
+nonce1["nonce(0)"]-->encode1[加密]
+key1[密钥]-->encode1[加密]
+cipher1[密文]-->xor1[XOR]
+encode1[加密]-->xor1[XOR]
+xor1[XOR]-->plain1[明文]
+end</pre>
+
+<ul>
+<li>对称加密实践</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">touch aes.txt</span><br><span class="line">echo &quot;hello aes&quot; &gt; aes.txt</span><br><span class="line"><span class="meta">#</span><span class="bash"> 此时aes的密钥是通过口令和salt生成的；</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 同样的口令和salt会生成同样的密钥；salt是随机的，以保证每次的密钥不同</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -p 打印本次加密过程</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询系统支持的加密算法：openssl list --cipher-algorithms</span></span><br><span class="line">openssl enc -aes-256-cbc -salt -in aes.txt-out aes.enc -pass pass:mypassword -p </span><br><span class="line"><span class="meta">#</span><span class="bash">解密</span></span><br><span class="line">openssl enc -d -aes-256-cbc -in aes.enc</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-5-1-公开密钥算法"><a href="#2-5-1-公开密钥算法" class="headerlink" title="2.5.1 公开密钥算法"></a>2.5.1 公开密钥算法</h5><p>公开密钥算法也称为非对称加密算法</p>
+<ul>
+<li>和对称加密算法的比较</li>
+</ul>
+<ol>
+<li><p>对称加密算法主要用于加解密，但公开密钥算法除了加解密，还可以做密钥协商、数字签名。</p>
+</li>
+<li><p>密钥是一对，公钥和私钥</p>
+</li>
+<li><p>运算很慢，加解密要考虑运算数据量</p>
+</li>
+</ol>
+<ul>
+<li>RSA算法</li>
+</ul>
+<p>加解密：</p>
+<pre class="mermaid">graph LR
+plain[明文]-->encode[加密]
+pubkey[公钥]-->encode[加密]
+encode[加密]-->cipher[密文]
+cipher[密文]-->decode[解密]
+prikey[私钥]-->decode[解密]
+decode[解密]-->plain2[明文]</pre>
+
+<p>加解密剖析：</p>
+<ol>
+<li>公钥和私钥一般以文件形式提供</li>
+<li>密钥文件生成过程：</li>
+</ol>
+<ul>
+<li>取2个很大的质数p、q，求乘积n=p*q</li>
+<li>取一个公开指数e，e &lt; (p-1)<em>(q-1)，且e和(p-1)</em>(q-1)互质</li>
+<li>e和n组合起来就相当于公钥；e、p、q能够计算出私钥d，d和n组合起来就相当于私钥</li>
+<li>C=M^e(mod n)，M表示明文，e表示公钥，C表示密文；M=C^d(mod n)，d表示私钥</li>
+</ul>
+<p>PKCS标准：</p>
+<p>公开密钥算法的标准PKCS(Public Key Cryptography Standards)，指导使用者正确使用公开密钥算法。</p>
+<p>如PKCS#1标准，能够保证同样的明文、同样的密钥，通过RSA加密，每次的密文都是不一样的。</p>
+<p>应用场景：</p>
+<ul>
+<li>单步加密</li>
+</ul>
+<ol>
+<li>客户端第一次连接服务器，服务器返回RSA密钥对的公钥</li>
+<li>客户端用公钥加密，发给服务器</li>
+<li>服务器用私钥解密</li>
+</ol>
+<ul>
+<li>双向加密</li>
+</ul>
+<ol>
+<li>客户端生成一对RSA密钥对，连接服务器并发送公钥(cpubkey)</li>
+<li>服务器保存客户端公钥，并生成另一对RSA密钥对，并将自己的公钥(spubkey)发给客户端</li>
+<li>客户端使用服务端的公钥加密，服务器收到后，用自己的私钥(sprikey)解密，然后用客户端的公钥加密返回信息</li>
+<li>客户端使用自己的私钥(cprikey)解密</li>
+</ol>
+<ul>
+<li>公开密钥实践</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 生成密钥对文件</span></span><br><span class="line">openssl genrsa -out rsa.pem 2048</span><br><span class="line"><span class="meta">#</span><span class="bash"> 生成密钥对文件，同时用3des算法进行保护</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 3des算法的密钥是通过口令生成的</span></span><br><span class="line">openssl genrsa -des3 -out rsa2.pem 2048</span><br><span class="line"><span class="meta">#</span><span class="bash"> 校验密码对文件是否正确</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -noout，表示不打印密钥对信息</span></span><br><span class="line">openssl rsa -in rsa.pem -check -noout</span><br><span class="line"><span class="meta">#</span><span class="bash"> 分离出公钥</span></span><br><span class="line">openssl rsa -in rsa.pem -pubout -out rsapubkey.pem</span><br><span class="line"><span class="meta">#</span><span class="bash"> 分离出公钥，但需要输入口令</span></span><br><span class="line">openssl rsa -in rsa2.pem -pubout -out rsapubkey2.pem</span><br><span class="line"><span class="meta">#</span><span class="bash"> 显示公钥信息</span></span><br><span class="line">openssl rsa -pubin -in rsapubkey.pem -text</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 加密</span></span><br><span class="line">touch rsa.txt</span><br><span class="line">echo &quot;hello rsa&quot; &gt; rsa.txt</span><br><span class="line"><span class="meta">#</span><span class="bash">使用密钥对加密</span></span><br><span class="line">openssl rsautl -encrypt -inkey rsa.pem -in rsa.txt -out rsa.enc</span><br><span class="line"><span class="meta">#</span><span class="bash">使用公钥加密</span></span><br><span class="line">openssl rsautl -encrypt -pubin -inkey rsapubkey.pem -in rsa.txt -out rsa.enc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">解密</span></span><br><span class="line">openssl rsautl -decrypt -inkey rsa.pem -in rsa.enc</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="2-6-密钥"><a href="#2-6-密钥" class="headerlink" title="2.6 密钥"></a>2.6 密钥</h4><h4 id="2-7-消息验证码"><a href="#2-7-消息验证码" class="headerlink" title="2.7 消息验证码"></a>2.7 消息验证码</h4><h4 id="2-8-密钥协商算法"><a href="#2-8-密钥协商算法" class="headerlink" title="2.8 密钥协商算法"></a>2.8 密钥协商算法</h4><h4 id="2-9-椭圆曲线密码学"><a href="#2-9-椭圆曲线密码学" class="headerlink" title="2.9 椭圆曲线密码学"></a>2.9 椭圆曲线密码学</h4><h4 id="2-10-数字签名"><a href="#2-10-数字签名" class="headerlink" title="2.10 数字签名"></a>2.10 数字签名</h4>
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2021年12月29日 02:53</p>
+        <p>最后更新： 2022年01月01日 02:14</p>
         <p>原始链接： <a class="post-url" href="/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="深入浅出https从原理到实践学习笔记">https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></p>
         <footer>
             <a href="https://yclii.github.io/workbook">
@@ -273,7 +690,7 @@
     <div class="post-share-list" id="share-list">
         <ul class="share-icons">
           <li>
-            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=《深入浅出https从原理到实践学习笔记》 — 李一称的博客&pic=images/logo/xx.png" data-title="微博">
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/&title=《深入浅出https从原理到实践学习笔记》 — 李一称的博客&pic=images/logo/https.jpg" data-title="微博">
               <i class="fa fa-weibo"></i>
             </a>
           </li>
@@ -333,7 +750,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-HTTP%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">1. HTTP介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-%E5%87%A0%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="post-toc-text">1.1 几个概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-HTTP%E7%89%88%E6%9C%AC"><span class="post-toc-text">1.2 HTTP版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-HTTP%E8%AF%AD%E4%B9%89"><span class="post-toc-text">1.2 HTTP语义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-HTTP%E7%89%B9%E7%82%B9"><span class="post-toc-text">1.3 HTTP特点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-HTTP%E4%B8%8D%E5%AE%89%E5%85%A8%E5%8E%9F%E5%9B%A0"><span class="post-toc-text">1.4 HTTP不安全原因</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-5-%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F"><span class="post-toc-text">1.5 攻击方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-6-%E7%BC%93%E8%A7%A3%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%AA%E6%96%BD"><span class="post-toc-text">1.6 缓解安全问题的措施</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="post-toc-text">2. 密码学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E5%9B%9B%E4%B8%AA%E7%9B%AE%E6%A0%87"><span class="post-toc-text">2.1 密码学的四个目标</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-OpenSSL"><span class="post-toc-text">2.2 OpenSSL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="post-toc-text">2.3 随机数</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-HTTP%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">1. HTTP介绍</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-1-%E5%87%A0%E4%B8%AA%E6%A6%82%E5%BF%B5"><span class="post-toc-text">1.1 几个概念</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-HTTP%E7%89%88%E6%9C%AC"><span class="post-toc-text">1.2 HTTP版本</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-2-HTTP%E8%AF%AD%E4%B9%89"><span class="post-toc-text">1.2 HTTP语义</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-3-HTTP%E7%89%B9%E7%82%B9"><span class="post-toc-text">1.3 HTTP特点</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-4-HTTP%E4%B8%8D%E5%AE%89%E5%85%A8%E5%8E%9F%E5%9B%A0"><span class="post-toc-text">1.4 HTTP不安全原因</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#1-5-%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F"><span class="post-toc-text">1.5 攻击方式</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-6-%E7%BC%93%E8%A7%A3%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E7%9A%84%E6%8E%AA%E6%96%BD"><span class="post-toc-text">1.6 缓解安全问题的措施</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#2-%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="post-toc-text">2. 密码学</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-1-%E5%AF%86%E7%A0%81%E5%AD%A6%E7%9A%84%E5%9B%9B%E4%B8%AA%E7%9B%AE%E6%A0%87"><span class="post-toc-text">2.1 密码学的四个目标</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-2-OpenSSL"><span class="post-toc-text">2.2 OpenSSL</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-3-%E9%9A%8F%E6%9C%BA%E6%95%B0"><span class="post-toc-text">2.3 随机数</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-4-%E5%AF%86%E7%A0%81%E5%AD%A6Hash%E7%AE%97%E6%B3%95"><span class="post-toc-text">2.4 密码学Hash算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-5-%E6%95%B0%E6%8D%AE%E5%8A%A0%E5%AF%86"><span class="post-toc-text">2.5 数据加密</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-5-1-%E5%AF%B9%E7%A7%B0%E5%8A%A0%E5%AF%86%E7%AE%97%E6%B3%95"><span class="post-toc-text">2.5.1 对称加密算法</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2-5-1-%E5%85%AC%E5%BC%80%E5%AF%86%E9%92%A5%E7%AE%97%E6%B3%95"><span class="post-toc-text">2.5.1 公开密钥算法</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-6-%E5%AF%86%E9%92%A5"><span class="post-toc-text">2.6 密钥</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-7-%E6%B6%88%E6%81%AF%E9%AA%8C%E8%AF%81%E7%A0%81"><span class="post-toc-text">2.7 消息验证码</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-8-%E5%AF%86%E9%92%A5%E5%8D%8F%E5%95%86%E7%AE%97%E6%B3%95"><span class="post-toc-text">2.8 密钥协商算法</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-9-%E6%A4%AD%E5%9C%86%E6%9B%B2%E7%BA%BF%E5%AF%86%E7%A0%81%E5%AD%A6"><span class="post-toc-text">2.9 椭圆曲线密码学</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#2-10-%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D"><span class="post-toc-text">2.10 数字签名</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -382,7 +799,7 @@
       <p>
         Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
         Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
-      &copy; 2021 ycli<br>
+      &copy; 2022 ycli<br>
       </p>
     </div>
   </div>
