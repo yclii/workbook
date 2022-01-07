@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Linux软件安装工具 | 李一称的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+    <meta name="keywords" content="ycli,ycli's Blog" />
+  
+  <meta name="description" content="apt-getapt-get，高级包装工具（Advanced Packaging  Tools）是Debian及其衍生发行版（如：ubuntu）的软件包管理器。APT可以自动下载，配置，安装二进制或者源代码格式的软件包，因此简化了Unix系统管理软件的过程。  语法  1apt-get(命令)(选项)   命令  12345678910111213update - 重新获取软件包列表 upgrad">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux软件安装工具">
+<meta property="og:url" content="https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/index.html">
+<meta property="og:site_name" content="李一称的博客">
+<meta property="og:description" content="apt-getapt-get，高级包装工具（Advanced Packaging  Tools）是Debian及其衍生发行版（如：ubuntu）的软件包管理器。APT可以自动下载，配置，安装二进制或者源代码格式的软件包，因此简化了Unix系统管理软件的过程。  语法  1apt-get(命令)(选项)   命令  12345678910111213update - 重新获取软件包列表 upgrad">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-07T06:27:42.000Z">
+<meta property="article:modified_time" content="2022-01-07T07:42:32.292Z">
+<meta property="article:author" content="ycli">
+<meta property="article:tag" content="ycli,ycli&#39;s Blog">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/workbook//favicon.ico">
+  
+  <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+  
+<link rel="stylesheet" href="/workbook/css/style.css">
+
+  
+<script src="/workbook/js/pace.min.js"></script>
+
+  
+
+  
+  
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+      <header id="header">
+    <div id="banner"></div>
+    <div id="header-outer">
+        <div id="header-menu" class="header-menu-pos animated">
+            <div class="header-menu-container">
+                <a href="/workbook/" class="left">
+                    <span class="site-title">ycli&#39;s Blog</span>
+                </a>
+                <nav id="header-menu-nav" class="right">
+                    
+                    <a  href="/workbook/">
+                        <i class="fa fa-home"></i>
+                        <span>Home</span>
+                    </a>
+                    
+                    <a  href="/workbook/archives">
+                        <i class="fa fa-archive"></i>
+                        <span>Archives</span>
+                    </a>
+                    
+                    <a  href="/workbook/about">
+                        <i class="fa fa-user"></i>
+                        <span>About</span>
+                    </a>
+                    
+                    <a target="_blank" href="//github.com/yclii">
+                        <i class="fa fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    
+                </nav>
+                <a class="mobile-header-menu-button">
+                    <i class="fa fa-bars"></i>
+                </a>
+            </div>
+        </div>
+        <div id="header-row">
+			<!--
+            <div id="logo">
+                <a href="/workbook/">
+                    <img src="/workbook/" alt="logo">
+                </a>
+            </div>
+			-->
+            <div class="header-info">
+                <div id="header-title">
+                    
+                    <h2>
+                        ycli&#39;s Blog
+                    </h2>
+                    
+                </div>
+                <div id="header-description">
+                    
+                    <h3>
+                        Knowledge is the torch of wisdom.
+                    </h3>
+                    
+                </div>
+            </div>
+            <nav class="header-nav">
+                <div class="social">
+                    
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+      <div class="outer">
+        <section id="main" class="body-wrap"><article id="post-Linux软件安装工具" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="post-title" itemprop="name">
+      Linux软件安装工具
+    </h1>
+    <div class="post-title-bar">
+      <ul>
+          
+        <li>
+          <i class="fa fa-calendar"></i>  2022-01-07
+        </li>
+        <li>
+          <i class="fa fa-eye"></i>
+          <span id="busuanzi_value_page_pv"></span>
+        </li>
+      </ul>
+    </div>
+  
+
+          
+      </header>
+    
+    <div class="article-entry post-content" itemprop="articleBody">
+      
+            
+            <h4 id="apt-get"><a href="#apt-get" class="headerlink" title="apt-get"></a>apt-get</h4><p>apt-get，高级包装工具（Advanced Packaging  Tools）是Debian及其衍生发行版（如：ubuntu）的软件包管理器。APT可以自动下载，配置，安装二进制或者源代码格式的软件包，因此简化了Unix系统管理软件的过程。</p>
+<ul>
+<li>语法</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get(命令)(选项)</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>命令</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">update - 重新获取软件包列表 </span><br><span class="line">upgrade - 进行更新 </span><br><span class="line">install - 安装新的软件包 </span><br><span class="line">remove - 移除软件包 </span><br><span class="line">autoremove - 自动移除全部不使用的软件包 </span><br><span class="line">purge - 移除软件包和配置文件 </span><br><span class="line">source - 下载源码档案 </span><br><span class="line">build-dep - 为源码包配置编译依赖 </span><br><span class="line">dist-upgrade - 发行版升级</span><br><span class="line">dselect-upgrade - 依照 dselect 的选择更新 </span><br><span class="line">clean - 清除下载的归档文件 </span><br><span class="line">autoclean - 清除旧的的已下载的归档文件 </span><br><span class="line">check - 检验是否有损坏的依赖 </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>选项</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">-h 本帮助文件。 </span><br><span class="line">-q 输出到日志 - 无进展指示 </span><br><span class="line">-qq 不输出信息，错误除外 </span><br><span class="line">-d 仅下载 - 不安装或解压归档文件 </span><br><span class="line">-s 不实际安装。模拟执行命令</span><br><span class="line">-y 假定对所有的询问选是，不提示 </span><br><span class="line">-f 尝试修正系统依赖损坏处 </span><br><span class="line">-m 如果归档无法定位，尝试继续</span><br><span class="line">-u 同时显示更新软件包的列表 </span><br><span class="line">-b 获取源码包后编译 -V 显示详细的版本号</span><br><span class="line">-c=? 阅读此配置文件</span><br><span class="line">-o=? 设置自定的配置选项，如 -o dir::cache=/tmp</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实例</li>
+</ul>
+<p>使用<code>apt-get</code>命令的第一步就是引入必需的软件库，<code>Debian</code>的软件库也就是所有<code>Debian</code>软件包的集合，它们存在互联网上的一些公共站点上。把它们的地址加入，<code>apt-get</code>就能搜索到我们想要的软件。<code>/etc/apt/sources.list</code>是存放这些地址列表的配置文件，其格式如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deb web或[ftp地址] [发行版名字] main/contrib/non-[free]</span><br></pre></td></tr></table></figure>
+
+<p>在修改<code>/etc/apt/sources.list</code>或者<code>/etc/apt/preferences</code>之后运行该命令。此外您需要定期运行这一命令以确保您的软件包列表是最新的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get update</span><br></pre></td></tr></table></figure>
+
+<p>安装一个新软件包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install packagename</span><br></pre></td></tr></table></figure>
+
+<p>卸载一个已安装的软件包（保留配置文件）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get remove packagename</span><br></pre></td></tr></table></figure>
+
+<p>卸载一个已安装的软件包（删除配置文件）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get –purge remove packagename</span><br></pre></td></tr></table></figure>
+
+<p>会把已装或已卸的软件都备份在硬盘上，所以如果需要空间的话，可以让这个命令来删除你已经删掉的软件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoclean apt</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会把安装的软件的备份也删除，不过这样不会影响软件的使用的：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get clean</span><br></pre></td></tr></table></figure>
+
+<p>更新所有已安装的软件包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get upgrade</span><br></pre></td></tr></table></figure>
+
+<p>将系统升级到新版本：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get dist-upgrade</span><br></pre></td></tr></table></figure>
+
+<p>定期运行这个命令来清除那些已经卸载的软件包的.deb文件。通过这种方式，您可以释放大量的磁盘空间。如果您的需求十分迫切，可以使用<code>apt-get clean</code>以释放更多空间。这个命令会将已安装软件包裹的.deb文件一并删除。大多数情况下您不会再用到这些.debs文件，因此如果您为磁盘空间不足而感到焦头烂额，这个办法也许值得一试：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get autoclean</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="apt-file"><a href="#apt-file" class="headerlink" title="apt-file"></a>apt-file</h4><p>apt-file是一个软件包查找工具，可以查到软件包所含的文件和安装的位置。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装apt-file</span></span><br><span class="line">apt-get install apt-file</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更新apt-file缓存</span></span><br><span class="line">apt-file update</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助</span></span><br><span class="line">apt-file -h</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="apt-cache"><a href="#apt-cache" class="headerlink" title="apt-cache"></a>apt-cache</h4><p>通过apt-cache命令结合一些参数使用能查寻到软件包信息和软件包依赖关系</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装apt-cache</span></span><br><span class="line">apt-get install apt-cache</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看帮助</span></span><br><span class="line">apt-cache -h</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>常用命令</li>
+</ul>
+<p>apt-cache的常用命令：</p>
+<ul>
+<li><p>showsrc - 显示源文件的各项记录</p>
+</li>
+<li><p>search - 根据正则表达式搜索软件包列表</p>
+</li>
+<li><p>depends - 显示该软件包的依赖关系信息</p>
+</li>
+<li><p>rdepends - 显示所有依赖于该软件包的软件包名字</p>
+</li>
+<li><p>show - 以便于阅读的格式介绍该软件包</p>
+</li>
+<li><p>pkgnames - 列出所有软件包的名字</p>
+</li>
+<li><p>policy - 显示软件包的安装设置状态</p>
+</li>
+<li><p>实例</p>
+</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看火狐</span></span><br><span class="line">apt-cache show firefox</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看依赖</span></span><br><span class="line">apt-cache rdepends firefox</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="aptitude"><a href="#aptitude" class="headerlink" title="aptitude"></a>aptitude</h4><p>aptitude与 apt-get 一样，是 Debian 及其衍生系统中功能极其强大的包管理工具。与 apt-get  不同的是，aptitude在处理依赖问题上更佳一些。如aptitude在删除一个包时，会同时删除本身所依赖的包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">apt-get install aptitude</span><br><span class="line">aptitude -h</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="yum"><a href="#yum" class="headerlink" title="yum"></a>yum</h4><p>YUM（Yellowdog Updater  Modified）是一款开源命令行及图形化软件包管理工具，面向基于RPM（红帽软件包管理器）的Linux系统。它让广大用户和系统管理员可以在系统上轻松地安装、更新、移除或搜索软件包。它由Seth  Vidal开发和发布，采用了GPL（通用公共许可证），是一款开源工具。这意味着，谁都可以下载和访问代码，以修复软件错误，开发定制的软件包。YUM通过解决软件包的依赖项问题，使用众多的第三方软件库来自动安装软件包。</p>
+<ul>
+<li>查看语法</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">yum -h</span><br><span class="line">已加载插件：fastestmirror, langpacks</span><br><span class="line">Usage: yum [options] COMMAND</span><br><span class="line">List of Commands:</span><br><span class="line"></span><br><span class="line">check     检查 RPM 数据库问题</span><br><span class="line">check-update  检查是否有可用的软件包更新</span><br><span class="line">clean     删除缓存数据</span><br><span class="line">deplist    列出软件包的依赖关系</span><br><span class="line">distribution-synchronization 已同步软件包到最新可用版本</span><br><span class="line">downgrade   降级软件包</span><br><span class="line">erase     从系统中移除一个或多个软件包</span><br><span class="line">fs       Creates filesystem snapshots, or lists/deletes current snapshots.</span><br><span class="line">fssnapshot   Creates filesystem snapshots, or lists/deletes current snapshots.</span><br><span class="line">groups     显示或使用、组信息</span><br><span class="line">help      显示用法提示</span><br><span class="line">history    显示或使用事务历史</span><br><span class="line">info      显示关于软件包或组的详细信息</span><br><span class="line">install    向系统中安装一个或多个软件包</span><br><span class="line">langavailable Check available languages</span><br><span class="line">langinfo    List languages information</span><br><span class="line">langinstall  Install appropriate language packs for a language</span><br><span class="line">langlist    List installed languages</span><br><span class="line">langremove   Remove installed language packs for a language</span><br><span class="line">list      列出一个或一组软件包</span><br><span class="line">load-transaction 从文件名中加载一个已存事务</span><br><span class="line">makecache   创建元数据缓存</span><br><span class="line">provides    查找提供指定内容的软件包</span><br><span class="line">remove    删除软件包及依赖</span><br><span class="line">reinstall   覆盖安装软件包</span><br><span class="line">repo-pkgs   将一个源当作一个软件包组，这样我们就可以一次性安装/移除全部软件包。</span><br><span class="line">repolist    显示已配置的源</span><br><span class="line">search     在软件包详细信息中搜索指定字符串</span><br><span class="line">shell     运行交互式的 yum shell</span><br><span class="line">swap      Simple way to swap packages, instead of using shell</span><br><span class="line">update     更新系统中的一个或多个软件包</span><br><span class="line">update-minimal Works like upgrade, but goes to the &#x27;newest&#x27; package match which fixes a problem that affects your system</span><br><span class="line">updateinfo   Acts on repository update information</span><br><span class="line">upgrade    更新软件包同时考虑软件包取代关系</span><br><span class="line">version    显示机器和/或可用的源版本。</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line"> -h, --help                    显示此帮助消息并退出</span><br><span class="line"> -t, --tolerant                  忽略错误</span><br><span class="line"> -C, --cacheonly                  完全从系统缓存运行，不升级缓存</span><br><span class="line"> -c [config file], --config=[config file]     配置文件路径</span><br><span class="line"> -R [minutes], --randomwait=[minutes]       命令最长等待时间</span><br><span class="line"> -d [debug level], --debuglevel=[debug level]   调试输出级别</span><br><span class="line"> --showduplicates   在 list/search 命令下，显示源里重复的条目</span><br><span class="line"> -e [error level], --errorlevel=[error level]   错误输出级别</span><br><span class="line"> --rpmverbosity=[debug level name]         RPM 调试输出级别</span><br><span class="line"> -q, --quiet                    静默执行</span><br><span class="line"> -v, --verbose                   详尽的操作过程</span><br><span class="line"> -y, --assumeyes                  回答全部问题为是</span><br><span class="line"> --assumeno                    回答全部问题为否</span><br><span class="line"> --version                     显示 Yum 版本然后退出</span><br><span class="line"> --installroot=[path]               设置安装根目录</span><br><span class="line"> --enablerepo=[repo]                启用一个或多个软件源(支持通配符)</span><br><span class="line"> --disablerepo=[repo]               禁用一个或多个软件源(支持通配符)</span><br><span class="line"> -x [package], --exclude=[package]         采用全名或通配符排除软件包</span><br><span class="line"> --disableexcludes=[repo]             禁止从主配置，从源或者从任何位置排除</span><br><span class="line"> --disableincludes=[repo]             disable includepkgs for a repo or for everything</span><br><span class="line"> --obsoletes                    更新时处理软件包取代关系</span><br><span class="line"> --noplugins                    禁用 Yum 插件</span><br><span class="line"> --nogpgcheck                   禁用 GPG 签名检查</span><br><span class="line"> --disableplugin=[plugin]             禁用指定名称的插件</span><br><span class="line"> --enableplugin=[plugin]              启用指定名称的插件</span><br><span class="line"> --skip-broken                   忽略存在依赖关系问题的软件包</span><br><span class="line"> --color=COLOR                   配置是否使用颜色</span><br><span class="line"> --releasever=RELEASEVER              在 yum 配置和 repo 文件里设置 $releasever 的值</span><br><span class="line"> --downloadonly                  仅下载而不更新</span><br><span class="line"> --downloaddir=DLDIR                指定一个其他文件夹用于保存软件包</span><br><span class="line"> --setopt=SETOPTS                 设置任意配置和源选项</span><br><span class="line"> --bugfix                     Include bugfix relevant packages, in updates</span><br><span class="line"> --security                    Include security relevant packages, in updates</span><br><span class="line"> --advisory=ADVS, --advisories=ADVS        Include packages needed to fix the given advisory, in updates</span><br><span class="line"> --bzs=BZS                     Include packages needed to fix the given BZ, in updates</span><br><span class="line"> --cves=CVES                    Include packages needed to fix the given CVE, in updates</span><br><span class="line"> --sec-severity=SEVS, --secseverity=SEVS      Include security relevant packages matching the severity, in updates</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>实例</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看火狐依赖</span></span><br><span class="line">yum deplist firefox</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除firefox及依赖</span></span><br><span class="line">yum remove firefox</span><br><span class="line"><span class="meta">#</span><span class="bash"> 列出系统所有已启用的软件库</span></span><br><span class="line">yum repolist</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看历史命令</span></span><br><span class="line">yum history</span><br><span class="line"><span class="meta">#</span><span class="bash"> 从软件库中搜索</span></span><br><span class="line">yum search firefox</span><br></pre></td></tr></table></figure>
+
+
+
+<ul>
+<li>添加yum源</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 备份操作系统自带的基础源</span></span><br><span class="line">mv /etc/yum.repos.d/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo.backup</span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载对应版本repo文件, 放入/etc/yum.repos.d/(操作前请做好相应备份)</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 除了网易之外，国内还有其他不错的yum源，比如中科大和搜狐。</span></span><br><span class="line">wget http://mirrors.163.com/.help/CentOS5-Base-163.repo</span><br><span class="line">wget http://mirrors.163.com/.help/CentOS6-Base-163.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 刷新缓存</span></span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="dnf"><a href="#dnf" class="headerlink" title="dnf"></a>dnf</h4><p>DNF是新一代的rpm软件包管理器。他首先出现在 Fedora 18 这个发行版中。而最近，它取代了yum，正式成为 Fedora 22 的包管理器。DNF包管理器克服了YUM包管理器的一些瓶颈，提升了包括用户体验，内存占用，依赖分析，运行速度等多方面的内容。DNF使用 RPM,  libsolv 和 hawkey 库进行包管理操作。尽管它没有预装在 CentOS 和 RHEL 7 中，但你可以在使用 YUM 的同时使用  DNF 。</p>
+<ul>
+<li>为了安装 DNF ，必须先安装并启用 epel-release 依赖。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install epel-release -y</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>使用 epel-release 依赖中的 YUM 命令来安装 DNF 包。在系统中执行以下命令：</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install dnf</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 DNF 包管理器版本</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf –version</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看系统中可用的 DNF 软件库</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf repolist</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看系统中可用和不可用的所有的 DNF 软件库</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf repolist all</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列出所有 RPM 包</li>
+</ul>
+<p>用处：该命令用于列出用户系统上的所有来自软件库的可用软件包和所有已经安装在系统上的软件包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf list</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列出所有安装了的 RPM 包</li>
+</ul>
+<p>用处：该命令用于列出所有安装了的 RPM 包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf list installed</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>列出所有可供安装的 RPM 包</li>
+</ul>
+<p>用处：该命令用于列出来自所有可用软件库的可供安装的软件包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf list available</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>搜索软件库中的 RPM 包</li>
+</ul>
+<p>用处：当你不知道你想要安装的软件的准确名称时，你可以用该命令来搜索软件包。你需要在”search”参数后面键入软件的部分名称来搜索。（在本例中我们使用”nano”）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf search nano</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查找某一文件的提供者</li>
+</ul>
+<p>用处：当你想要查看是哪个软件包提供了系统中的某一文件时，你可以使用这条命令。（在本例中，我们将查找”/bin/bash”这个文件的提供者）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf provides /bin/bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看软件包详情</li>
+</ul>
+<p>用处：当你想在安装某一个软件包之前查看它的详细信息时，这条命令可以帮到你。（在本例中，我们将查看”nano”这一软件包的详细信息）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf info nano</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装软件包</li>
+</ul>
+<p>用处：使用该命令，系统将会自动安装对应的软件及其所需的所有依赖（在本例中，我们将用该命令安装nano软件）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf install nano</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>升级软件包</li>
+</ul>
+<p>用处：该命令用于升级制定软件包（在本例中，我们将用命令升级”systemd”这一软件包）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf update systemd</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>检查系统软件包的更新</li>
+</ul>
+<p>用处：该命令用于检查系统中所有软件包的更新</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf check-update</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>升级所有系统软件包</li>
+</ul>
+<p>用处：该命令用于升级系统中所有有可用升级的软件包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dnf update </span><br><span class="line"><span class="meta">#</span><span class="bash"> 或 dnf upgrade</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除软件包</li>
+</ul>
+<p>用处：删除系统中指定的软件包（在本例中我们将使用命令删除”nano”这一软件包）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dnf remove nano</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或 dnf erase nano</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除无用孤立的软件包</li>
+</ul>
+<p>用处：当没有软件再依赖它们时，某一些用于解决特定软件依赖的软件包将会变得没有存在的意义，该命令就是用来自动移除这些没用的孤立软件包。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf autoremove</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除缓存的无用软件包</li>
+</ul>
+<p>用处：在使用 DNF 的过程中，会因为各种原因在系统中残留各种过时的文件和未完成的编译工程。我们可以使用该命令来删除这些没用的垃圾文件。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf clean all</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>获取有关某条命令的使用帮助</li>
+</ul>
+<p>用处：该命令用于获取有关某条命令的使用帮助（包括可用于该命令的参数和该命令的用途说明）（本例中我们将使用命令获取有关命令”clean”的使用帮助）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf help clean</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看所有的 DNF 命令及其用途</li>
+</ul>
+<p>用处：该命令用于列出所有的 DNF 命令及其用途shell</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf help</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看 DNF 命令的执行历史</li>
+</ul>
+<p>用处：您可以使用该命令来查看您系统上 DNF 命令的执行历史。通过这个手段您可以知道在自您使用 DNF 开始有什么软件被安装和卸载。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf history</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查看所有的软件包组</li>
+</ul>
+<p>用处：该命令用于列出所有的软件包组</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf grouplist</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>安装一个软件包组</li>
+</ul>
+<p>用处：该命令用于安装一个软件包组（本例中，我们将用命令安装”Educational Software”这个软件包组）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf groupinstall ‘Educational Software’</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>升级一个软件包组中的软件包</li>
+</ul>
+<p>用处：该命令用于升级一个软件包组中的软件包（本例中，我们将用命令升级”Educational Software”这个软件包组中的软件）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf groupupdate ‘Educational Software’</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>删除一个软件包组</li>
+</ul>
+<p>用处：该命令用于删除一个软件包组（本例中，我们将用命令删除”Educational Software”这个软件包组）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf groupremove ‘Educational Software’</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>从特定的软件包库安装特定的软件</li>
+</ul>
+<p>用处：该命令用于从特定的软件包库安装特定的软件（本例中我们将使用命令从软件包库 epel 中安装 phpmyadmin 软件包）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf –enablerepo=epel install phpmyadmin</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更新软件包到最新的稳定发行版</li>
+</ul>
+<p>用处：该命令可以通过所有可用的软件源将已经安装的所有软件包更新到最新的稳定发行版</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf distro-sync</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>重新安装特定软件包</li>
+</ul>
+<p>用处：该命令用于重新安装特定软件包（本例中，我们将使用命令重新安装”nano”这个软件包）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf reinstall nano</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回滚某个特定软件的版本</li>
+</ul>
+<p>用处：该命令用于降低特定软件包的版本（如果可能的话）（本例中，我们将使用命令降低”acpid”这个软件包的版本）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dnf downgrade acpid</span><br></pre></td></tr></table></figure>
+
+<p>样例输出：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Using metadata from Wed May 20 12:44:59 2015</span><br><span class="line">No match for available package: acpid-2.0.19-5.el7.x86_64</span><br><span class="line">Error: Nothing to do.shell</span><br></pre></td></tr></table></figure>
+
+<p>原作者注：在执行这条命令的时候， DNF 并没有按照我期望的那样降级指定的软件（“acpid”）。该问题已经上报。</p>
+<ul>
+<li>总结</li>
+</ul>
+<p>DNF 包管理器作为 YUM 包管理器的升级替代品，它能自动完成更多的操作。但在我看来，正因如此，所以 DNF 包管理器不会太受那些经验老道的 Linux 系统管理者的欢迎。举例如下：</p>
+<ol>
+<li>在 DNF 中没有 –skip-broken 命令，并且没有替代命令供选择。</li>
+<li>在 DNF 中没有判断哪个包提供了指定依赖的 resolvedep 命令。</li>
+<li>在 DNF 中没有用来列出某个软件依赖包的 deplist 命令。</li>
+<li>当你在 DNF 中排除了某个软件库，那么该操作将会影响到你之后所有的操作，不像在 YUM 下那样，你的排除操作只会咋升级和安装软件时才起作用。</li>
+</ol>
+<h4 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h4><p>文档内容均摘自网络</p>
+<p>《linux工具apt、yum和dnf运用》 <code>https://www.cnblogs.com/qvduoduo/p/6148523.html</code></p>
+<p>《Linux命令大全-dnf 》<code>https://ipcmen.com/dnf</code></p>
+<p>《Linux命令大全-yum 》<code>https://ipcmen.com/yum</code></p>
+
+            <div class="post-copyright">
+    <div class="content">
+        <p>最后更新： 2022年01月07日 02:42</p>
+        <p>原始链接： <a class="post-url" href="/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/" title="Linux软件安装工具">https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/</a></p>
+        <footer>
+            <a href="https://yclii.github.io/workbook">
+                <img src="/workbook/images/banner.jpg" alt="ycli">
+                ycli
+            </a>
+        </footer>
+    </div>
+</div>
+
+      
+        
+            
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;">赏</a>
+</div>
+
+<div id="reward" class="post-modal reward-lay">
+    <a class="close" href="javascript:;" id="reward-close">×</a>
+    <span class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        如果文章对你有用，可以打赏一下作者
+        <i class="icon icon-quote-right"></i>
+    </span>
+    <div class="reward-content">
+        
+        <div class="reward-code">
+            <img id="rewardCode" src="/workbook/images/wechat_code.jpg" alt="打赏二维码">
+        </div>
+        <div class="reward-select">
+            
+            <label class="reward-select-item checked" data-id="wechat" data-wechat="/workbook/images/wechat_code.jpg">
+                <img class="reward-select-item-wechat" src="/workbook/images/wechat.png" alt="微信">
+            </label>
+            
+            
+            <label class="reward-select-item" data-id="alipay" data-alipay="/workbook/images/alipay_code.jpg">
+                <img class="reward-select-item-alipay" src="/workbook/images/alipay.png" alt="支付宝">
+            </label>
+            
+        </div>
+    </div>
+</div>
+
+
+        
+    </div>
+    <footer class="article-footer">
+        
+        
+<div class="post-share">
+    <a href="javascript:;" id="share-sub" class="post-share-fab">
+        <i class="fa fa-share-alt"></i>
+    </a>
+    <div class="post-share-list" id="share-list">
+        <ul class="share-icons">
+          <li>
+            <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/&title=《Linux软件安装工具》 — 李一称的博客&pic=images/logo/tools.png" data-title="微博">
+              <i class="fa fa-weibo"></i>
+            </a>
+          </li>
+          <li>
+            <a class="weixin share-sns" id="wxFab" href="javascript:;" data-title="微信">
+              <i class="fa fa-weixin"></i>
+            </a>
+          </li>
+          <li>
+            <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/&title=《Linux软件安装工具》 — 李一称的博客&source=" data-title="QQ">
+              <i class="fa fa-qq"></i>
+            </a>
+          </li>
+          <li>
+            <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/" data-title="Facebook">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li>
+            <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Linux软件安装工具》 — 李一称的博客&url=https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/&via=https://yclii.github.io/workbook" data-title="Twitter">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/" data-title="Google+">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        </ul>
+     </div>
+</div>
+<div class="post-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;" id="wxShare-close">×</a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://yclii.github.io/workbook/2022/01/07/Linux%E8%BD%AF%E4%BB%B6%E5%AE%89%E8%A3%85%E5%B7%A5%E5%85%B7/" alt="微信分享二维码">
+</div>
+
+<div class="mask"></div>
+
+        
+        <ul class="article-footer-menu">
+            
+            
+        </ul>
+        
+    </footer>
+  </div>
+</article>
+
+
+    <aside class="post-toc-pos post-toc-top" id="post-toc">
+        <nav class="post-toc-wrap">
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apt-get"><span class="post-toc-text">apt-get</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apt-file"><span class="post-toc-text">apt-file</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#apt-cache"><span class="post-toc-text">apt-cache</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#aptitude"><span class="post-toc-text">aptitude</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#yum"><span class="post-toc-text">yum</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dnf"><span class="post-toc-text">dnf</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E"><span class="post-toc-text">文档说明</span></a></li></ol>
+        </nav>
+    </aside>
+    
+
+<nav id="article-nav">
+  
+    <a href="/workbook/2022/01/07/Kettle%E6%9E%84%E5%BB%BAHadoop-ETL%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5/" id="article-nav-newer" class="article-nav-link-wrap">
+
+      <span class="article-nav-title">
+        <i class="fa fa-hand-o-left" aria-hidden="true"></i>
+        
+          Kettle构建Hadoop_ETL系统实践
+        
+      </span>
+    </a>
+  
+  
+    <a href="/workbook/2021/12/29/%E6%B7%B1%E5%85%A5%E6%B5%85%E5%87%BAhttps%E4%BB%8E%E5%8E%9F%E7%90%86%E5%88%B0%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <span class="article-nav-title">深入浅出https从原理到实践学习笔记</span>
+      <i class="fa fa-hand-o-right" aria-hidden="true"></i>
+    </a>
+  
+</nav>
+
+
+
+    
+        <div id="SOHUCS" sid="Linux软件安装工具" ></div>
+<script type="text/javascript">
+    (function(){
+        var appid = 'cyvrD3KQG';
+        var conf = 'prod_18ca86cbd238ba30e70d774e741ff021';
+        var width = window.innerWidth || document.documentElement.clientWidth;
+        if (width < 960) {
+            window.document.write('<script id="changyan_mobile_js" charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/mobile/wap-js/changyan_mobile.js?client_id=' + appid + '&conf=' + conf + '"><\/script>'); } else { var loadJs=function(d,a){var c=document.getElementsByTagName("head")[0]||document.head||document.documentElement;var b=document.createElement("script");b.setAttribute("type","text/javascript");b.setAttribute("charset","UTF-8");b.setAttribute("src",d);if(typeof a==="function"){if(window.attachEvent){b.onreadystatechange=function(){var e=b.readyState;if(e==="loaded"||e==="complete"){b.onreadystatechange=null;a()}}}else{b.onload=a}}c.appendChild(b)};loadJs("https://changyan.sohu.com/upload/changyan.js",function(){window.changyan.api.config({appid:appid,conf:conf})}); } })(); </script>
+    
+</section>
+        
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info" class="inner">
+	 <!--
+      
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+	 -->
+      <p>
+        Powered by  <a href="http://hexo.io/" target="_blank">Hexo</a>
+        Theme <a href="//github.com/wongminho/hexo-theme-miho" target="_blank">MiHo</a>
+      &copy; 2022 ycli<br>
+      </p>
+    </div>
+  </div>
+</footer>
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  var mihoConfig = {
+      root: "https://yclii.github.io/workbook",
+      animate: true,
+      isHome: false,
+      share: true,
+      reward: 1
+  }
+</script>
+<div class="sidebar">
+    <div id="sidebar-search" title="Search">
+        <i class="fa fa-search"></i>
+    </div>
+    <div id="sidebar-category" title="Categories">
+        <i class="fa fa-book"></i>
+    </div>
+    <div id="sidebar-tag" title="Tags">
+        <i class="fa fa-tags"></i>
+    </div>
+    <div id="sidebar-top">
+        <span class="sidebar-top-icon"><i class="fa fa-angle-up"></i></span>
+    </div>
+</div>
+<div class="sidebar-menu-box" id="sidebar-menu-box">
+    <div class="sidebar-menu-box-container">
+        <div id="sidebar-menu-box-categories">
+            <a class="category-link" href="/workbook/categories/HTTPS/">HTTPS</a><a class="category-link" href="/workbook/categories/devOpts/">devOpts</a><a class="category-link" href="/workbook/categories/maven/">maven</a><a class="category-link" href="/workbook/categories/mysql/">mysql</a><a class="category-link" href="/workbook/categories/oracle/">oracle</a><a class="category-link" href="/workbook/categories/tool/">tool</a><a class="category-link" href="/workbook/categories/vscode/">vscode</a><a class="category-link" href="/workbook/categories/vue/">vue</a><a class="category-link" href="/workbook/categories/%E6%80%A7%E8%83%BD%E4%BC%98%E5%8C%96/">性能优化</a>
+        </div>
+        <div id="sidebar-menu-box-tags">
+            <a href="/workbook/tags/AWR/" style="font-size: 20px;">AWR</a> <a href="/workbook/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/workbook/tags/SSL-TLS-OpenSSL/" style="font-size: 10px;">SSL,TLS,OpenSSL</a> <a href="/workbook/tags/docker/" style="font-size: 10px;">docker</a> <a href="/workbook/tags/git/" style="font-size: 10px;">git</a> <a href="/workbook/tags/maven/" style="font-size: 10px;">maven</a> <a href="/workbook/tags/mermaid/" style="font-size: 10px;">mermaid</a> <a href="/workbook/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/workbook/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/workbook/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/workbook/tags/vue/" style="font-size: 20px;">vue</a> <a href="/workbook/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/workbook/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">多进程</a>
+        </div>
+    </div>
+    <a href="javascript:;" class="sidebar-menu-box-close">&times;</a>
+</div>
+<div class="mobile-header-menu-nav" id="mobile-header-menu-nav">
+    <div class="mobile-header-menu-container">
+        <span class="title">Menus</span>
+        <ul class="mobile-header-menu-navbar">
+            
+            <li>
+                <a  href="/workbook/">
+                    <i class="fa fa-home"></i><span>Home</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/workbook/archives">
+                    <i class="fa fa-archive"></i><span>Archives</span>
+                </a>
+            </li>
+            
+            <li>
+                <a  href="/workbook/about">
+                    <i class="fa fa-user"></i><span>About</span>
+                </a>
+            </li>
+            
+            <li>
+                <a target="_blank" href="//github.com/yclii">
+                    <i class="fa fa-github"></i><span>GitHub</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    <div class="mobile-header-tag-container">
+        <span class="title">Tags</span>
+        <div id="mobile-header-container-tags">
+            <a href="/workbook/tags/AWR/" style="font-size: 20px;">AWR</a> <a href="/workbook/tags/JVM/" style="font-size: 10px;">JVM</a> <a href="/workbook/tags/SSL-TLS-OpenSSL/" style="font-size: 10px;">SSL,TLS,OpenSSL</a> <a href="/workbook/tags/docker/" style="font-size: 10px;">docker</a> <a href="/workbook/tags/git/" style="font-size: 10px;">git</a> <a href="/workbook/tags/maven/" style="font-size: 10px;">maven</a> <a href="/workbook/tags/mermaid/" style="font-size: 10px;">mermaid</a> <a href="/workbook/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/workbook/tags/oracle/" style="font-size: 10px;">oracle</a> <a href="/workbook/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/workbook/tags/vue/" style="font-size: 20px;">vue</a> <a href="/workbook/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/" style="font-size: 10px;">多线程</a> <a href="/workbook/tags/%E5%A4%9A%E8%BF%9B%E7%A8%8B/" style="font-size: 10px;">多进程</a>
+        </div>
+    </div>
+</div>
+<div class="search-wrap">
+    <span class="search-close">&times;</span>
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+            <i class="icon icon-lg icon-chevron-left"></i>
+        </a>
+        <input class="search-field" placeholder="Search..." id="keywords">
+        <a id="search-submit" href="javascript:;">
+            <i class="fa fa-search"></i>
+        </a>
+    <div class="search-container" id="search-container">
+        <ul class="search-result" id="search-result">
+        </ul>
+    </div>
+</div>
+
+<div id="search-tpl">
+    <li class="search-result-item">
+        <a href="{url}" class="search-item-li">
+            <span class="search-item-li-title" title="{title}">{title}</span>
+        </a>
+    </li>
+</div>
+
+<script src="/workbook/js/search.js"></script>
+
+
+<script src="/workbook/js/main.js"></script>
+
+
+
+  <script src="//cdn.bootcss.com/particles.js/2.0.0/particles.min.js"></script>
+  <div id="particles"></div>
+  
+<script src="/workbook/js/particles.js"></script>
+
+
+
+
+
+
+
+
+  
+<link rel="stylesheet" href="//cdn.bootcss.com/animate.css/3.5.0/animate.min.css">
+
+  <script src="//cdn.bootcss.com/scrollReveal.js/3.0.5/scrollreveal.js"></script>
+  
+<script src="/workbook/js/animate.js"></script>
+
+
+
+  
+<script src="/workbook/js/pop-img.js"></script>
+
+  <script>
+     $(".article-entry p img").popImg();
+  </script>
+
+
+  <script src="https://unpkg.com/mermaid@8.10.1/dist/mermaid.min.js"></script>
+  
+
+
+  </div>
+</body>
+</html>
