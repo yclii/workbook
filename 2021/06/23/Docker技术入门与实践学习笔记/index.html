@@ -8,20 +8,22 @@
   
     <meta name="keywords" content="ycli,ycli's Blog" />
   
-  <meta name="description" content="概述 Docker 是一个基于Go语言实现的开源应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。  历史 Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并">
+  <meta name="description" content="技术介绍Docker 是一个基于Go语言实现的开源应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。  历史   Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker技术入门与实践学习笔记">
 <meta property="og:url" content="https://yclii.github.io/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="李一称的博客">
-<meta property="og:description" content="概述 Docker 是一个基于Go语言实现的开源应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。  历史 Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并">
+<meta property="og:description" content="技术介绍Docker 是一个基于Go语言实现的开源应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。  历史   Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://yclii.github.io/workbook/2021/06/23/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210628101012729-16415446199111.png">
+<meta property="og:image" content="https://yclii.github.io/workbook/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210628101012729-16415446199111.png">
+<meta property="og:image" content="https://yclii.github.io/workbook/2021/06/23/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4-1Z415145K55S.gif">
+<meta property="og:image" content="https://yclii.github.io/workbook/2021/06/23/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4-1Z41514595K39.gif">
 <meta property="article:published_time" content="2021-06-23T15:25:08.000Z">
-<meta property="article:modified_time" content="2022-01-09T05:54:31.091Z">
+<meta property="article:modified_time" content="2022-01-10T09:06:28.382Z">
 <meta property="article:author" content="ycli">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yclii.github.io/workbook/2021/06/23/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210628101012729-16415446199111.png">
+<meta name="twitter:image" content="https://yclii.github.io/workbook/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210628101012729-16415446199111.png">
   
   
     <link rel="icon" href="/workbook//favicon.ico">
@@ -147,10 +149,11 @@
     <div class="article-entry post-content" itemprop="articleBody">
       
             
-            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
-<p>Docker 是一个基于Go语言实现的开源应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
-</blockquote>
-<h3 id="历史"><a href="#历史" class="headerlink" title="历史"></a>历史</h3><ul>
+            <h3 id="技术介绍"><a href="#技术介绍" class="headerlink" title="技术介绍"></a>技术介绍</h3><p>Docker 是一个基于Go语言实现的开源应用容器引擎，让开发者可以打包他们的应用以及依赖包到一个可移植的镜像中，然后发布到任何流行的 Linux 或 Windows 机器上，也可以实现虚拟化。容器是完全使用沙箱机制，相互之间不会有任何接口。</p>
+<ul>
+<li>历史</li>
+</ul>
+<ol>
 <li><p>Docker 是 PaaS 提供商 dotCloud 开源的一个基于 LXC 的高级容器引擎，源代码托管在 Github 上, 基于go语言并遵从Apache2.0协议开源。</p>
 </li>
 <li><p>诞生于2013年年初，发起者是dotCloud公司。2013年年底，dotCloud公司直接改名为Docker Inc，专注于Docker相关技术和产品的开发，目前已成为全球最大的Docker容器服务提供商。官网：docker.com</p>
@@ -159,15 +162,22 @@
 </li>
 <li><p>目前主流的操作系统，包括Linux各大发行版、macOS、Windows等都已经支持Docker。</p>
 </li>
+</ol>
+<ul>
+<li>优势</li>
 </ul>
-<h3 id="优势"><a href="#优势" class="headerlink" title="优势"></a>优势</h3><ul>
-<li>应用直接运行在底层操作系统上，无法保证同一份应用在不同环境行为一致。Docker通过容器来打包应用，解耦了应用和运行平台。</li>
-<li>Docker可以快速创建和删除容器，实现快速的交付和部署。</li>
-<li>Docker是内核级的虚拟化，不需要额外的虚拟化管理程序（Virtual Machine Manager，VMM，以及Hypervisor）的支持，可以更高效的利用资源。</li>
+<ol>
+<li><p>应用直接运行在底层操作系统上，无法保证同一份应用在不同环境行为一致。Docker通过容器来打包应用，解耦了应用和运行平台。</p>
+</li>
+<li><p>Docker可以快速创建和删除容器，实现快速的交付和部署。</p>
+</li>
+<li><p>Docker是内核级的虚拟化，不需要额外的虚拟化管理程序（Virtual Machine Manager，VMM，以及Hypervisor）的支持，可以更高效的利用资源。</p>
+</li>
+</ol>
+<ul>
+<li>Docker与虚拟化</li>
 </ul>
-<h3 id="Docker与虚拟化"><a href="#Docker与虚拟化" class="headerlink" title="Docker与虚拟化"></a>Docker与虚拟化</h3><blockquote>
 <p>在计算机技术中，虚拟化是一种资源管理技术，是将计算机的各种实体资源，如服务器、网络、内存及存储等，予以抽象、转换后呈现出来，打破实体结构间的不可切割的障碍，使用户可以用比原来的组态更好的方式来应用这些资源。</p>
-</blockquote>
 <p>虚拟化的核心是对资源的抽象，一般为了在同一个主机上同时运行多个系统或应用，从而提高系统资源的利用率，并且能降低成本、方便管理和容错容灾。</p>
 <p>虚拟化技术分类：</p>
 <ol>
@@ -201,7 +211,7 @@
 </li>
 </ol>
 <p>与传统虚拟机技术的比较：</p>
-<p> <img src="../assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210628101012729-16415446199111.png" alt="image-20210628101012729"></p>
+<p> <img src="https://yclii.github.io/workbook/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/image-20210628101012729-16415446199111.png" alt="image-20210628101012729"></p>
 <table>
 <thead>
 <tr>
@@ -248,12 +258,15 @@
 </tbody></table>
 <p>传统方式是在硬件层面实现虚拟化，需要有额外的虚拟机管理应用和虚拟机操作系统层。</p>
 <p>Docker容器是在操作系统层面上实现虚拟化，直接复用本地主机的操作系统，因此更加轻量。</p>
-<h3 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h3><p>Docker 的 3 大核心概念：镜像、容器、仓库。</p>
-<h4 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h4><p>Docker 镜像由多个层组成，每层叠加后，从外部看就如一个独立的对象。镜像内部是一个精简的操作系统，同时包含应用运行所必需的文件和依赖包。镜像类比于VM模板或类（Class）文件。</p>
-<p>镜像通常比较小，构建镜像时通常会裁剪掉不必要的部分，镜像不包含容器共享的主机内核，仅包含必要的操作系统（操作系统文件和文件系统对象）。</p>
-<h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h4><p>Docker 容器类似于一个轻量级沙箱，用于隔离和运行应用。</p>
-<h4 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h4><p>Docker 集中存放镜像文件的地方。常见的镜像仓库是 Docker Hub</p>
-<h3 id="安装-Docker引擎"><a href="#安装-Docker引擎" class="headerlink" title="安装 Docker引擎"></a>安装 Docker引擎</h3><p>访问<a target="_blank" rel="noopener" href="https://www.docker.com/get-docker%EF%BC%8C%E6%9F%A5%E7%9C%8B%E8%8E%B7%E5%8F%96Docker%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%A5%E5%8F%8ADocker%E6%94%AF%E6%8C%81%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">https://www.docker.com/get-docker，查看获取Docker的方式，以及Docker支持的操作系统</a></p>
+<h3 id="Docker引擎"><a href="#Docker引擎" class="headerlink" title="Docker引擎"></a>Docker引擎</h3><ul>
+<li>Docker引擎是运行和编排容器的基础设施工具，类比于vmware的ESXi（运行虚拟机的核心管理程序）</li>
+<li>很多产品都集成了Docker引擎</li>
+</ul>
+<p> <img src="../assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4-1Z415145K55S.gif" alt="围绕Docker引擎进行开发和集成的产品"></p>
+<ul>
+<li>安装 Docker引擎</li>
+</ul>
+<p>访问<a target="_blank" rel="noopener" href="https://www.docker.com/get-docker%EF%BC%8C%E6%9F%A5%E7%9C%8B%E8%8E%B7%E5%8F%96Docker%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BB%A5%E5%8F%8ADocker%E6%94%AF%E6%8C%81%E7%9A%84%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F">https://www.docker.com/get-docker，查看获取Docker的方式，以及Docker支持的操作系统</a></p>
 <p>目前Docker支持以下服务：</p>
 <ul>
 <li>Docker引擎，提供容器集群编排和管理</li>
@@ -262,19 +275,59 @@
 </ul>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看操作系统内核</span></span><br><span class="line">uname -a</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加软件源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/fedora/docker-ce.repo</span><br><span class="line">yum install -y docker-ce</span><br><span class="line">docker version</span><br><span class="line"><span class="meta">#</span><span class="bash"> 自启动</span></span><br><span class="line">systemctl enable docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动</span></span><br><span class="line">systemctl start docker.service</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者通过官方脚本安装</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 脚本会自动检测系统信息并进行相应配置</span></span><br><span class="line">curl -fsSL https://get.docker.com/|sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 或者 wget -qO https://get.docker.com/|sh</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="镜像-1"><a href="#镜像-1" class="headerlink" title="镜像"></a>镜像</h3><ol>
+<ul>
+<li>升级Docker引擎</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 停止docker后台服务</span></span><br><span class="line">systemctl stop docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 移除旧版本</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在之前的版本中，Docker 引擎的包名可能有多个。这条命令能够确保已经安装的Docker包全部被删除。</span></span><br><span class="line">yum remove docker docker-engine docker-ce docker.io -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 安装新版本</span></span><br><span class="line">wget -qO https://get.docker.com/ | sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 设置开机自启动</span></span><br><span class="line">systemctl enable docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看自启动状态</span></span><br><span class="line">systemctl is-enabled docker.service</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置信息</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. /etc/docker/daemon.json</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 没有就创建</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加默认仓库镜像</span></span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加以下内容</span></span><br><span class="line">&#123;</span><br><span class="line"> &quot;registry-mirrors&quot;: [&quot;https://registry.docker-cn.com&quot;]</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. /etc/default/docker</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 没有就创建</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加默认仓库镜像（不能与daemon.json中定义相同的属性，如不能同时添加仓库镜像）</span></span><br><span class="line">vi /etc/docker/daemon.json</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加以下内容</span></span><br><span class="line">DOCKER_OPTS=&quot;--registry-mirror=https://registry.docker-cn.com&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 对应修改文件/usr/lib/systemd/system/docker.service</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在[Service]节点内，添加或修改以下内容</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 减号-表示忽略错误</span></span><br><span class="line">EnvironmentFile=-/etc/default/docker</span><br><span class="line">ExecStart=/usr/bin/dockerd -H fd:// $DOCKER_OPTS --containerd=/run/containerd/containerd.sock</span><br><span class="line"><span class="meta">#</span><span class="bash"> 刷新后台进程以及重启docker</span></span><br><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查询后台进程状态</span></span><br><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="开放容器计划（OCI）"><a href="#开放容器计划（OCI）" class="headerlink" title="开放容器计划（OCI）"></a>开放容器计划（OCI）</h3><p> <img src="../assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4-1Z41514595K39.gif" alt="OCI的Logo"></p>
+<ul>
+<li>开发容器计划(Open Container Initiative)，旨在对容器基础架构中的基础组件（如镜像格式与容器运行时）进行标准化的管理委员会</li>
+<li>CoreOS 的公司不喜欢 Docker 的某些行事方式。因此它就创建了一个新的开源标准，称作“appc”，该标准涉及诸如镜像格式和容器运行时等方面。</li>
+<li>为了标准化Docker公司与CoreOS公司发布的两种不同的容器规则，成立了OCI委员会。</li>
+<li>OCI 在 Linux 基金会的支持下运作，Docker 公司和 CoreOS 公司都是主要贡献者。</li>
+</ul>
+<h3 id="容器生态"><a href="#容器生态" class="headerlink" title="容器生态"></a>容器生态</h3><ul>
+<li>Docker 公司的一个核心哲学通常被称为“含电池，但可拆卸”（Batteries included but removable）</li>
+<li>许多 Docker 内置的组件都可以替换为第三方的组件</li>
+</ul>
+<h3 id="镜像"><a href="#镜像" class="headerlink" title="镜像"></a>镜像</h3><p>Docker 镜像由多个层组成，每层叠加后，从外部看就如一个独立的对象。镜像内部是一个精简的操作系统，同时包含应用运行所必需的文件和依赖包。镜像类比于VM模板或类（Class）文件。</p>
+<p>镜像通常比较小，构建镜像时通常会裁剪掉不必要的部分，镜像不包含容器共享的主机内核，仅包含必要的操作系统（操作系统文件和文件系统对象）。</p>
+<ul>
 <li>获取镜像</li>
-<li>查看镜像</li>
-<li>搜寻镜像</li>
-<li>删除镜像</li>
-<li>创建镜像</li>
-<li>导出和载入镜像</li>
-<li>上传镜像</li>
-</ol>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 语法格式</span></span><br><span class="line">docker [image] pull [registry/]name[:tag] </span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>查看镜像</p>
+</li>
+<li><p>搜寻镜像</p>
+</li>
+<li><p>删除镜像</p>
+</li>
+<li><p>创建镜像</p>
+</li>
+<li><p>导出和载入镜像</p>
+</li>
+<li><p>上传镜像</p>
+</li>
+</ul>
+<h3 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h3><p>Docker 容器类似于一个轻量级沙箱，用于隔离和运行应用。</p>
+<h3 id="仓库"><a href="#仓库" class="headerlink" title="仓库"></a>仓库</h3><p>Docker 集中存放镜像文件的地方。常见的镜像仓库是 Docker Hub</p>
+<h3 id="存储驱动"><a href="#存储驱动" class="headerlink" title="存储驱动"></a>存储驱动</h3><h3 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h3><p>文档内容来源其它文档的学习总结，引用的文档包括：</p>
+<p>《l中国编程网-Docker篇》 <code>http://c.biancheng.net/view/3130.html</code></p>
+<p>《Docker技术入门与实践》作者：杨保华</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2022年01月09日 00:54</p>
+        <p>最后更新： 2022年01月10日 04:06</p>
         <p>原始链接： <a class="post-url" href="/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Docker技术入门与实践学习笔记">https://yclii.github.io/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></p>
         <footer>
             <a href="https://yclii.github.io/workbook">
@@ -392,7 +445,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="post-toc-text">概述</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%8E%86%E5%8F%B2"><span class="post-toc-text">历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BC%98%E5%8A%BF"><span class="post-toc-text">优势</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker%E4%B8%8E%E8%99%9A%E6%8B%9F%E5%8C%96"><span class="post-toc-text">Docker与虚拟化</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%A0%B8%E5%BF%83%E6%A6%82%E5%BF%B5"><span class="post-toc-text">核心概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E9%95%9C%E5%83%8F"><span class="post-toc-text">镜像</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="post-toc-text">容器</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E4%BB%93%E5%BA%93"><span class="post-toc-text">仓库</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%89%E8%A3%85-Docker%E5%BC%95%E6%93%8E"><span class="post-toc-text">安装 Docker引擎</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%95%9C%E5%83%8F-1"><span class="post-toc-text">镜像</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">技术介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker%E5%BC%95%E6%93%8E"><span class="post-toc-text">Docker引擎</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%80%E6%94%BE%E5%AE%B9%E5%99%A8%E8%AE%A1%E5%88%92%EF%BC%88OCI%EF%BC%89"><span class="post-toc-text">开放容器计划（OCI）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8%E7%94%9F%E6%80%81"><span class="post-toc-text">容器生态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%95%9C%E5%83%8F"><span class="post-toc-text">镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="post-toc-text">容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%93%E5%BA%93"><span class="post-toc-text">仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%98%E5%82%A8%E9%A9%B1%E5%8A%A8"><span class="post-toc-text">存储驱动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E"><span class="post-toc-text">文档说明</span></a></li></ol>
         </nav>
     </aside>
     
