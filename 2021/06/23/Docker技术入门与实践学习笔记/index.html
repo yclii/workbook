@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://yclii.github.io/workbook/2021/06/23/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4-1Z415145K55S.gif">
 <meta property="og:image" content="https://yclii.github.io/workbook/2021/06/23/assets/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/4-1Z41514595K39.gif">
 <meta property="article:published_time" content="2021-06-23T15:25:08.000Z">
-<meta property="article:modified_time" content="2022-01-13T02:23:11.877Z">
+<meta property="article:modified_time" content="2022-01-14T06:43:29.893Z">
 <meta property="article:author" content="ycli">
 <meta property="article:tag" content="docker">
 <meta name="twitter:card" content="summary">
@@ -278,7 +278,7 @@
 <ul>
 <li>升级Docker引擎</li>
 </ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 1. 停止docker后台服务</span></span><br><span class="line">systemctl stop docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 移除旧版本</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在之前的版本中，Docker 引擎的包名可能有多个。这条命令能够确保已经安装的Docker包全部被删除。</span></span><br><span class="line">yum remove docker docker-engine docker-ce docker.io -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 安装新版本</span></span><br><span class="line">wget -qO https://get.docker.com/ | sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 设置开机自启动</span></span><br><span class="line">systemctl enable docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看自启动状态</span></span><br><span class="line">systemctl is-enabled docker.service</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在这里插入图片描述</span><br><span class="line">使用docker images命令查看镜像</span><br><span class="line">在这里插入图片描述# 1. 停止docker后台服务</span><br><span class="line">systemctl stop docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 2. 移除旧版本</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在之前的版本中，Docker 引擎的包名可能有多个。这条命令能够确保已经安装的Docker包全部被删除。</span></span><br><span class="line">yum remove docker docker-engine docker-ce docker.io -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 3. 安装新版本</span></span><br><span class="line">wget -qO https://get.docker.com/ | sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 4. 设置开机自启动</span></span><br><span class="line">systemctl enable docker.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看自启动状态</span></span><br><span class="line">systemctl is-enabled docker.service</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li>配置信息</li>
@@ -423,13 +423,106 @@
 
 
 
-<h3 id="存储驱动"><a href="#存储驱动" class="headerlink" title="存储驱动"></a>存储驱动</h3><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><h3 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h3><h3 id="端口映射与容器互联"><a href="#端口映射与容器互联" class="headerlink" title="端口映射与容器互联"></a>端口映射与容器互联</h3><h3 id="为镜像添加SSH服务"><a href="#为镜像添加SSH服务" class="headerlink" title="为镜像添加SSH服务"></a>为镜像添加SSH服务</h3><h3 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h3><p>文档内容来源其它文档的学习总结，引用的文档包括：</p>
+<h3 id="存储驱动"><a href="#存储驱动" class="headerlink" title="存储驱动"></a>存储驱动</h3><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>Dockerfile是一个文本格式的配置文件，可以快速创建自定义的镜像。</p>
+<p>Dockerfile内容包括4部分：基础镜像信息、维护者信息、镜像操作指令、容器启动时执行指令。</p>
+<h4 id="指令说明"><a href="#指令说明" class="headerlink" title="指令说明"></a>指令说明</h4><p>Docker指令分为配置指令和操作指令</p>
+<ul>
+<li>配置指令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ARG</td>
+<td>定义创建镜像过程中使用的变量。镜像编译成功后，变量被销毁释放。</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>指定基础镜像。位于首行，若文件中要创建多个镜像，可以多次使用，一个镜像对应一个FROM</td>
+</tr>
+<tr>
+<td>LABEL</td>
+<td>为生成的镜像添加元数据标签信息。用于辅助过滤特定镜像。格式：LABEL <key>=<value><key>=<value>…，也可以一个键值对一行</td>
+</tr>
+<tr>
+<td>EXPOSE</td>
+<td>声明镜像内服务监听端口。只声明，不会自动完成端口映射</td>
+</tr>
+<tr>
+<td>ENV</td>
+<td>指定环境变量。在后续RUN指令使用，在容器启动时也存在。当然，配置的环境变量可以在运行时被覆盖，如docker run –env key=value built_image。当一条ENV指令同时为多个变量赋值，策略为“先赋值后更新”，如 ENV key1=value2 \ ENV key1=value1 key2=${key1}，结果为：key1=value1,key2=value2</td>
+</tr>
+<tr>
+<td>ENTRYPOINT</td>
+<td>指定镜像的默认入口命令。该命令会在容器启动时作为根命令被执行，所有传入值作为该命令的参数。每个Dockerfile只能有一个ENTRYPOINT，若有多个，最后一个有效。支持两种格式：ENTRYPOINT[“executable”,”param1”,”param2”]:exec调用执行，ENTRYPOINT command param1 param2:shell执行。当然，在容器运行时也可以被覆盖，docker run –entrypoint</td>
+</tr>
+<tr>
+<td>VOLUME</td>
+<td>创建数据卷挂载点。格式：VOLUME [“/data”]</td>
+</tr>
+<tr>
+<td>USER</td>
+<td>指定运行容器时的用户名或UID</td>
+</tr>
+<tr>
+<td>WORKDIR</td>
+<td>配置工作目录。格式：WORKDIR 路径。若有多个WORKDIR，后续的WORKDIR会基于之前指定的路径。如 WORDIR /a \ WORKDIR b \ WORKDIR c \ RUN pwd ，最终的路径为/a/b/c。建议都采用绝对路径</td>
+</tr>
+<tr>
+<td>ONBUILD</td>
+<td>指定当基于所生成镜像创建子镜像时自动执行的操作指令。</td>
+</tr>
+<tr>
+<td>STOPSIGNAL</td>
+<td>指定所创建镜像启动的容器接收退出的信号值</td>
+</tr>
+<tr>
+<td>HEALTHCHECK</td>
+<td>配置所启动容器如何进行健康检查。支持两种格式：HEALTHCHECK [OPTIONS] CMD command:根据命令返回值是否为0来判断，OPTIONS支持的参数有-interval=val(过多久检查一次，默认30s), -timeout=val(每次检查等待结果超时，默认30s), -retries=val(失败重试次数，默认3次)；HEALTHCHECK NONE：禁止健康检查。</td>
+</tr>
+<tr>
+<td>SHELL</td>
+<td>指定默认的shell类型。默认类型为SHELL [“executable”,”parameters”]，默认值为[“/bin/sh”,”-c”]</td>
+</tr>
+</tbody></table>
+<ul>
+<li>操作指令</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>RUN</td>
+<td>运行指定命令。支持两种格式：RUN command，默认在shell终端(默认shell类型见SHELL配置指令)中运行;RUN [“executable”,”param1”,”param2”]，该格式指令会被解析为JSON数组，因此必须双引号，使用exec执行，不会启动shell环境。若采用其他终端类型执行，可以通过第二种格式实现，如RUN[“/bin/bash”,”-c”,”echo hello”]。每执行一次RUN命令，都会新增一层镜像层，尽量多条命令一起定义。</td>
+</tr>
+<tr>
+<td>CMD</td>
+<td>指定启动容器时默认执行的命令。支持三种格式：CMD[“executable”,”param1”,”param2”];CMD command param1 param2;CMD[“param1”,”param2”]，提供给ENTRYPOINT的默认参数。每个Dockerfile只能有一个CMD命令有效，若存在多个，最后一个有效。当然，在启动容器指定运行命令（作为run命令的参数），则会覆盖CMD指定的命令</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>添加内容到容器。格式：ADD src dest。复制src路径下内容到容器内的dest路径下。src可以是Dockerfile所在目录的相对路径（文件或目录），也可以是一个URL，还可以是tar文件（会自动解压为目录）；dest可以是镜像内的绝对路径，也可以是相对工作目录WORKDIR的相对路径。路径支持正则表达式。</td>
+</tr>
+<tr>
+<td>COPY</td>
+<td>添加内容到容器。格式：COPY src dest。复制本地主机内容到容器。和ADD的区别在于只复制本地机器内容。</td>
+</tr>
+</tbody></table>
+<h4 id="创建镜像"><a href="#创建镜像" class="headerlink" title="创建镜像"></a>创建镜像</h4><h4 id="最佳实践"><a href="#最佳实践" class="headerlink" title="最佳实践"></a>最佳实践</h4><h3 id="数据管理"><a href="#数据管理" class="headerlink" title="数据管理"></a>数据管理</h3><h3 id="端口映射与容器互联"><a href="#端口映射与容器互联" class="headerlink" title="端口映射与容器互联"></a>端口映射与容器互联</h3><h3 id="为镜像添加SSH服务"><a href="#为镜像添加SSH服务" class="headerlink" title="为镜像添加SSH服务"></a>为镜像添加SSH服务</h3><h3 id="文档说明"><a href="#文档说明" class="headerlink" title="文档说明"></a>文档说明</h3><p>文档内容来源其它文档的学习总结，引用的文档包括：</p>
 <p>《l中国编程网-Docker篇》 <code>http://c.biancheng.net/view/3130.html</code></p>
 <p>《Docker技术入门与实践》作者：杨保华</p>
 
             <div class="post-copyright">
     <div class="content">
-        <p>最后更新： 2022年01月12日 21:23</p>
+        <p>最后更新： 2022年01月14日 01:43</p>
         <p>原始链接： <a class="post-url" href="/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" title="Docker技术入门与实践学习笔记">https://yclii.github.io/workbook/2021/06/23/Docker%E6%8A%80%E6%9C%AF%E5%85%A5%E9%97%A8%E4%B8%8E%E5%AE%9E%E8%B7%B5%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</a></p>
         <footer>
             <a href="https://yclii.github.io/workbook">
@@ -547,7 +640,7 @@
 
     <aside class="post-toc-pos post-toc-top" id="post-toc">
         <nav class="post-toc-wrap">
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">技术介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker%E5%BC%95%E6%93%8E"><span class="post-toc-text">Docker引擎</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%80%E6%94%BE%E5%AE%B9%E5%99%A8%E8%AE%A1%E5%88%92%EF%BC%88OCI%EF%BC%89"><span class="post-toc-text">开放容器计划（OCI）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8%E7%94%9F%E6%80%81"><span class="post-toc-text">容器生态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%95%9C%E5%83%8F"><span class="post-toc-text">镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="post-toc-text">容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%93%E5%BA%93"><span class="post-toc-text">仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%98%E5%82%A8%E9%A9%B1%E5%8A%A8"><span class="post-toc-text">存储驱动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dockerfile"><span class="post-toc-text">Dockerfile</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="post-toc-text">数据管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E4%BA%92%E8%81%94"><span class="post-toc-text">端口映射与容器互联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BA%E9%95%9C%E5%83%8F%E6%B7%BB%E5%8A%A0SSH%E6%9C%8D%E5%8A%A1"><span class="post-toc-text">为镜像添加SSH服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E"><span class="post-toc-text">文档说明</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%8A%80%E6%9C%AF%E4%BB%8B%E7%BB%8D"><span class="post-toc-text">技术介绍</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker%E5%BC%95%E6%93%8E"><span class="post-toc-text">Docker引擎</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%BC%80%E6%94%BE%E5%AE%B9%E5%99%A8%E8%AE%A1%E5%88%92%EF%BC%88OCI%EF%BC%89"><span class="post-toc-text">开放容器计划（OCI）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8%E7%94%9F%E6%80%81"><span class="post-toc-text">容器生态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E9%95%9C%E5%83%8F"><span class="post-toc-text">镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AE%B9%E5%99%A8"><span class="post-toc-text">容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%BB%93%E5%BA%93"><span class="post-toc-text">仓库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E5%AD%98%E5%82%A8%E9%A9%B1%E5%8A%A8"><span class="post-toc-text">存储驱动</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dockerfile"><span class="post-toc-text">Dockerfile</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%8C%87%E4%BB%A4%E8%AF%B4%E6%98%8E"><span class="post-toc-text">指令说明</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E5%88%9B%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="post-toc-text">创建镜像</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="post-toc-text">最佳实践</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%95%B0%E6%8D%AE%E7%AE%A1%E7%90%86"><span class="post-toc-text">数据管理</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E7%AB%AF%E5%8F%A3%E6%98%A0%E5%B0%84%E4%B8%8E%E5%AE%B9%E5%99%A8%E4%BA%92%E8%81%94"><span class="post-toc-text">端口映射与容器互联</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E4%B8%BA%E9%95%9C%E5%83%8F%E6%B7%BB%E5%8A%A0SSH%E6%9C%8D%E5%8A%A1"><span class="post-toc-text">为镜像添加SSH服务</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#%E6%96%87%E6%A1%A3%E8%AF%B4%E6%98%8E"><span class="post-toc-text">文档说明</span></a></li></ol>
         </nav>
     </aside>
     
